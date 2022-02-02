@@ -45,7 +45,7 @@ https://drive.google.com/file/d/1Zn1GGHBUoXYGChN9R-uS92PQM0VbnSIj/view?usp=shari
 ## 画面遷移図
 ___
 https://drive.google.com/file/d/1GKOARfjqK96VoTI3-tfUF3pkU99C4nIM/view?usp=sharing
-![画面遷移図](docs/画面遷移図.drawio.png)
+![画面遷移図](docs/画面遷移図.drawio(1).png)
 ## ワイヤーフレーム
 ___
 https://drive.google.com/file/d/1niAp7eLyiT6YWnH7bdRI7eN2N_mabQZi/view?usp=sharing
