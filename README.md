@@ -41,7 +41,7 @@ https://docs.google.com/spreadsheets/d/1ZQVe23hevCW-NOATDkT9f6OhtpmlJrOPtl_acl5Q
 ## ER図
 ___
 https://drive.google.com/file/d/1Zn1GGHBUoXYGChN9R-uS92PQM0VbnSIj/view?usp=sharing
-![ER図](docs/ER図.drawio.png)
+![ER図](docs/ER図.drawio(1).png)
 ## 画面遷移図
 ___
 https://drive.google.com/file/d/1GKOARfjqK96VoTI3-tfUF3pkU99C4nIM/view?usp=sharing
