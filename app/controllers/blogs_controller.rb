@@ -1,4 +1,6 @@
 class BlogsController < ApplicationController
+before_action :set_target_blog, only: %i[show edit update destroy]
+
   def index
     @blogs = Blog.all
   end
@@ -8,26 +10,33 @@ class BlogsController < ApplicationController
   end
 
   def create
-    Blog.create(blog_params)
+    blog = Blog.create(blog_params)
+    redirect_to blog
   end
 
   def show
-    @blog = Blog.find(params[:id])
   end
 
   def edit
-    @blog = Blog.find(params[:id])
   end
 
   def update
-    blog = Blog.find(params[:id])
-    blog.update(blog_params)
-    redirect_to blog
+    @blog.update(blog_params)
+    redirect_to @blog
+  end
+
+  def destroy
+    @blog.delete
+    redirect_to blogs_path
   end
 
   private
 
   def blog_params
     params.require(:blog).permit(:title, :content, :image)
+  end
+
+  def set_target_blog
+    @blog = Blog.find(params[:id])
   end
 end
