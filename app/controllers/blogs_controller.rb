@@ -2,7 +2,7 @@ class BlogsController < ApplicationController
 before_action :set_target_blog, only: %i[show edit update destroy]
 
   def index
-    @blogs = Blog.all
+    @blogs = Blog.page(params[:page])
   end
 
   def new
