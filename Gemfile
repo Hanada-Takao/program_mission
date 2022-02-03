@@ -20,6 +20,8 @@ gem 'jquery-rails'
 gem 'mini_magick', '~> 4.8'
 gem 'seed-fu', '~> 2.3'
 gem 'devise'
+gem 'ransack'
+gem 'rails-i18n'
 
 
 group :development, :test do
@@ -42,13 +44,17 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'bullet'
-
+  gem 'annotate'
+  gem 'rails-flog', require: 'flog'
 end
 
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'rspec-parameterized'
+  gem 'rspec-retry'
+  gem 'timecop'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
