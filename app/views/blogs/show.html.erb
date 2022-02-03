@@ -1,7 +1,8 @@
 
 <div class="d-flex align-items-center mt-4 mb-4">
   <div class="ml-auto blogs__linkBox">
-    <a href="/blogs" class="btn btn-outline-dark">一覧</a>
+    <%= link_to '一覧', blogs_path, class: 'btn btn-outline-dark' %>
+    <%= link_to '編集', edit_blog_path(@blog), class: 'btn btn-outline-dark'%>
     <a href="/blogs" class="btn btn-outline-dark">編集</a>
   </div>
 </div>
