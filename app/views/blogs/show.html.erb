@@ -14,4 +14,8 @@
     <p class="card-text"><%= simple_format(@blog.content) %></p>
     <p class="text-right font-weight-bold mr-10"><%= @blog.content %></p>
   </div>
+
+  <% if flash[:notice] %>
+    <div class = "alert alert-primary"><%= flash[:notice] %></div>
+  <% end %>
 </div>
