@@ -22,7 +22,8 @@ gem 'seed-fu', '~> 2.3'
 gem 'devise'
 gem 'ransack'
 gem 'rails-i18n'
-
+gem 'mini_racer'
+gem 'bootstrap'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
