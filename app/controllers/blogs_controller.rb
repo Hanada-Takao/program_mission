@@ -22,6 +22,8 @@ before_action :set_target_blog, only: %i[show edit update destroy]
   end
 
   def show
+    @comment = @blog.comments.new
+    binding.pry
   end
 
   def edit
