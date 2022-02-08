@@ -4,5 +4,7 @@
     <span><%= comment.comment_name %></span>
     <span><%= comment.user.user_name %></span>
     <span><%= comment.created_at.to_s(:datetime_jp) %></span>
+    <span>  <%= link_to '削除', [comment.blog, comment],
+              method: :delete, class: "button is-danger", data: { confirm: '削除してもよろしいですか?' } %></span>
   </div>
 </div>

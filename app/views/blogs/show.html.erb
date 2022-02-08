@@ -25,4 +25,4 @@
   <%= render @blog.comments %>
 </div>
 
-  <%= render 'comments/form', blog: @blog %>
+<%= render partial: 'comments/form', locals: { comment: @comment } %>
