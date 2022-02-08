@@ -5,6 +5,9 @@ ja:
       blog:
         title: タイトル
         content: 本文
+      comment:
+        comment_name: コメントタイトル
+        comment: コメント
   views:
     pagination:
       first: 最初

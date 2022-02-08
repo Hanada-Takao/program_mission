@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :blogs
+  has_many :blogs, dependent: :destroy
+  has_many :comments
 end
 
 # == Schema Information
