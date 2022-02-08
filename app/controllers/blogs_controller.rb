@@ -34,8 +34,14 @@ class BlogsController < ApplicationController
   end
 
   def update
-    @blog.update(blog_params)
-    redirect_to @blog
+    if @blog.update(blog_params)
+      redirect_to @blog
+    else
+      redirect_to edit_blog_path, flash: {
+        blog: @blog,
+        error_messages: @blog.errors.full_messages
+      }
+    end
   end
 
   def destroy

@@ -10,6 +10,10 @@ class CommentsController < ApplicationController
       # flash[:comment] = comment
       # flash[:error_messages] = comment.errors.full_messages
       redirect_back(fallback_location: root_path)
+      # redirect_to root_path, flash: {
+      #   comment: @comment,
+      #   error_messages: @comment.errors.full_messages
+      # }
     end
   end
 
