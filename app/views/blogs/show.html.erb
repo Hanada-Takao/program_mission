@@ -12,10 +12,17 @@
   </div>
   <div class="card-body">
     <p class="card-text"><%= simple_format(@blog.content) %></p>
-    <p class="text-right font-weight-bold mr-10"><%= @blog.content %></p>
+    <p class="text-right font-weight-bold mr-10"><%= @blog.user.user_name %></p>
   </div>
 
   <% if flash[:notice] %>
     <div class = "alert alert-primary"><%= flash[:notice] %></div>
   <% end %>
 </div>
+
+<div class="p-comment__list">
+  <div class="p-comment__listTitle">コメント</div>
+  <%= render @blog.comments %>
+</div>
+
+  <%= render 'comments/form', blog: @blog %>

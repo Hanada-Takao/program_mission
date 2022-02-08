@@ -1,8 +1,10 @@
 class BlogsController < ApplicationController
-before_action :set_target_blog, only: %i[show edit update destroy]
+  before_action :set_target_blog, only: %i[show edit update destroy]
+  before_action :authenticate_user!, only: %i[show create]
 
   def index
     @blogs = Blog.page(params[:page])
+    @blog = Blog.new
   end
 
   def new
@@ -11,8 +13,9 @@ before_action :set_target_blog, only: %i[show edit update destroy]
 
   def create
     blog = Blog.new(blog_params)
+    blog.user_id = current_user.id
     if blog.save
-      redirect_to blog, flash: { notice: "「#{@blog.title}のブログを作成しました」"}
+      redirect_to blog, flash: { notice: "「#{blog.title}のブログを作成しました」"}
     else
       redirect_to new_blog_path, flash: {
         blog: blog,
@@ -22,8 +25,9 @@ before_action :set_target_blog, only: %i[show edit update destroy]
   end
 
   def show
-    @comment = @blog.comments.new
-    binding.pry
+    @comment = Comment.new(blog_id: @blog.id)
+    # @comment = @blog.comments.new
+    # @comment = Comment.new
   end
 
   def edit
