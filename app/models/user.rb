@@ -6,9 +6,12 @@ class User < ApplicationRecord
 
   has_many :blogs, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :blogs, through: :favorites
 
   validates :user_name, presence: true
   validates :email, presence: true
+  validates_uniqueness_of :blog_id, scope: :user_id
 end
 
 # == Schema Information
