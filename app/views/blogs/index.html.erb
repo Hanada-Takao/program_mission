@@ -16,12 +16,12 @@
               <td><%= blog.user.user_name %></td>
               <td>
                 <% if current_user.already_favorited?(blog) %>
-                  <%= link_to favorites_path(blog_id: blog.id), method: :delete do %>
+                  <%= link_to blog_favorites_path(blog), method: :delete do %>
                     <i class="fas fa-heart"></i>
                   <% end %>
                   <%= blog.favorites.count %>
                 <% else %>
-                  <%= link_to favorites_path(blog_id: blog.id), method: :post do %>
+                  <%= link_to blog_favorites_path(blog), method: :post do %>
                     <i class="far fa-heart"></i>
                   <% end %>
                   <%= blog.favorites.count %>
