@@ -12,30 +12,35 @@ class BlogsController < ApplicationController
   end
 
   def create
-    blog = Blog.new(blog_params)
-    blog.user_id = current_user.id
-    if blog.save
-      redirect_to blog, flash: { notice: "「#{blog.title}のブログを作成しました」"}
+    @blog = current_user.blogs.build(blog_params)
+    if @blog.save
+      redirect_to blog_path(@blog), flash: { notice: "「#{@blog.title}のブログを作成しました」"}
     else
       redirect_to new_blog_path, flash: {
-        blog: blog,
-        error_messages: blog.errors.full_messages
+        blog: @blog,
+        error_messages: @blog.errors.full_messages
       }
     end
   end
 
   def show
     @comment = Comment.new(blog_id: @blog.id)
+    @favorite = current_user.favorites.find_by(blog_id: @blog.id)
+    @blog = Blog.find(params[:id])
     # @comment = @blog.comments.new
     # @comment = Comment.new
   end
 
   def edit
+    @blog = Blog.find(params[:id])
+    if @blog.user != current_user
+      redirect_to blogs_path, alert: '不正なアクセスです。'
+    end
   end
 
   def update
     if @blog.update(blog_params)
-      redirect_to @blog
+      redirect_to blog_path(@blog), notice: '更新に成功しました。'
     else
       redirect_to edit_blog_path, flash: {
         blog: @blog,
@@ -45,14 +50,14 @@ class BlogsController < ApplicationController
   end
 
   def destroy
-    @blog.delete
-    redirect_to blogs_path, flash: { notice: "「#{@blog.title}のブログが削除されました」"}
+    blog.destroy
+    redirect_to blogs_path, flash: { notice: "「#{blog.title}のブログが削除されました」"}
   end
 
   private
 
   def blog_params
-    params.require(:blog).permit(:title, :content, :image)
+    params.require(:blog).permit(:title, :content, :image, :user_id)
   end
 
   def set_target_blog

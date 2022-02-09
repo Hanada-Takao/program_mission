@@ -115,6 +115,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.10.1)
+      devise (>= 4.8.0)
     diff-lcs (1.5.0)
     erubi (1.10.0)
     execjs (2.8.1)
@@ -375,6 +377,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   database_cleaner
   devise
+  devise-i18n
   factory_bot_rails
   jbuilder (~> 2.7)
   jquery-rails

@@ -4,6 +4,8 @@ class Blog < ApplicationRecord
 
   belongs_to :user
   has_many :comments
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_users, through: :favorites, source: 'user'
 end
 
 # == Schema Information
@@ -16,6 +18,5 @@ end
 #  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  blog_id    :bigint
-#  user_id    :bigint
+#  user_id    :bigint           not null
 #

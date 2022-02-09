@@ -1,8 +1,7 @@
 class CreateBlogs < ActiveRecord::Migration[6.0]
   def change
     create_table :blogs do |t|
-      t.bigint :user_id
-      t.bigint :blog_id
+      t.bigint :user_id, null: false, foreign_key: true
       t.string :title
       t.text :content
       t.string :image

@@ -5,7 +5,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :blogs, dependent: :destroy
-  has_many :comments
+  has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :blogs, through: :favorites
+
+  validates :user_name, presence: true
+  validates :email, presence: true
+
+  def already_favorited?(blog)
+    self.favorites.exists?(blog_id: blog.id)
+  end
 end
 
 # == Schema Information

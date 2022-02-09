@@ -1,9 +1,33 @@
-<h1>ユーザー詳細ページ</h1>
-<h3><%= @user.email %></h3>
-<h2>投稿内容</h2>
-<% @user.blogs.each do |post| %>
-  <a href="/blogs/<%= blogs.id %>"><%= blogs.content %></a>
-  <hr>
-<% end %>
-<%= link_to "ユーザー一覧へ", users_path %>
-<%= link_to "ホームへ戻る", blogs_path %>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-7 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= current_user.user_name %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= current_user.email %></h6>
+          <%= link_to 'ユーザー編集', edit_user_path %>
+        </div>
+      </div>
+    </div>
+    <div class="col-9 mx-auto mt-5">
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">タイトル</th>
+            <th scope="col">コンテンツ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% current_user.blogs.each do |blog| %>
+            <tr>
+              <td><%= link_to blog.title, blog_path(blog) %></td>
+              <td><%= blog.content %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <%= link_to "ユーザー一覧へ", users_path %>
+    <%= link_to "ホームへ戻る", blogs_path %>
+  </div>
+</div>

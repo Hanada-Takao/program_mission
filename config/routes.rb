@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-  get 'users/index'
-  get 'users/show'
-  get 'home/top'
+  root to: "home#top"
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :users, only: %i[index show]
+  resources :users
   resources :blogs do
     resources :comments, only: %i[create destroy]
+    # resource :favorites, only: %i[create destroy]
   end
-
-  root 'blogs#index'
+  post '/favorites', to: 'favorites#create'
+  get 'favorites/index'
+  delete '/favorites', to: 'favorites#destroy'
+  # root 'blogs#index'
 end
