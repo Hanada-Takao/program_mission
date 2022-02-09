@@ -1,11 +1,12 @@
 class Favorite < ApplicationRecord
-  belongs_to :user_id
-  belongs_to :blog_id
+  belongs_to :user
+  belongs_to :blog
 
   with_options presence: true do
     validates :user_id
     validates :blog_id
   end
+  validates_uniqueness_of :blog_id, scope: :user_id
 end
 
 # == Schema Information

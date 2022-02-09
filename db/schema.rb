@@ -16,8 +16,7 @@ ActiveRecord::Schema.define(version: 2022_02_09_002036) do
   enable_extension "plpgsql"
 
   create_table "blogs", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "blog_id"
+    t.bigint "user_id", null: false
     t.string "title"
     t.text "content"
     t.string "image"

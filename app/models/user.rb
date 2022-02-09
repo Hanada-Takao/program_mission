@@ -11,7 +11,10 @@ class User < ApplicationRecord
 
   validates :user_name, presence: true
   validates :email, presence: true
-  validates_uniqueness_of :blog_id, scope: :user_id
+
+  def already_favorited?(blog)
+    self.favorites.exists?(blog_id: blog.id)
+  end
 end
 
 # == Schema Information
