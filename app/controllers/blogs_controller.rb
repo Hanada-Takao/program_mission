@@ -12,14 +12,14 @@ class BlogsController < ApplicationController
   end
 
   def create
-    blog = Blog.new(blog_params)
-    blog.user_id = current_user.id
-    if blog.save
-      redirect_to blog, flash: { notice: "「#{blog.title}のブログを作成しました」"}
+    @blog = Blog.new(blog_params)
+    @blog.user_id = current_user.id
+    if @blog.save
+      redirect_to blog_path(@blog), flash: { notice: "「#{@blog.title}のブログを作成しました」"}
     else
       redirect_to new_blog_path, flash: {
-        blog: blog,
-        error_messages: blog.errors.full_messages
+        blog: @blog,
+        error_messages: @blog.errors.full_messages
       }
     end
   end
@@ -31,11 +31,15 @@ class BlogsController < ApplicationController
   end
 
   def edit
+    @blog = Blog.find(params[:id])
+    if @blog.user != current_user
+      redirect_to blogs_path, alert: '不正なアクセスです。'
+    end
   end
 
   def update
     if @blog.update(blog_params)
-      redirect_to @blog
+      redirect_to blog_path(@blog), notice: '更新に成功しました。'
     else
       redirect_to edit_blog_path, flash: {
         blog: @blog,
@@ -45,8 +49,8 @@ class BlogsController < ApplicationController
   end
 
   def destroy
-    @blog.delete
-    redirect_to blogs_path, flash: { notice: "「#{@blog.title}のブログが削除されました」"}
+    blog.destroy
+    redirect_to blogs_path, flash: { notice: "「#{blog.title}のブログが削除されました」"}
   end
 
   private
