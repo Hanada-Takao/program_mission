@@ -12,9 +12,8 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create destroy]
     resource :favorites, only: %i[create destroy]
   end
+  resources :conversations do
+    resouces :messsages
+  end
 
-  # post '/favorites', to: 'favorites#create'
-  # get 'favorites/index'
-  # delete '/favorites', to: 'favorites#destroy'
-  # root 'blogs#index'
 end
