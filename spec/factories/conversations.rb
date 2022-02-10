@@ -1,16 +1,16 @@
 # == Schema Information
 #
-# Table name: relationships
+# Table name: conversations
 #
 #  id           :bigint           not null, primary key
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  follower_id  :bigint           not null
-#  following_id :bigint           not null
+#  recipient_id :bigint           not null
+#  sender_id    :bigint           not null
 #
 FactoryBot.define do
-  factory :relationship do
-    following_id { 1 }
-    follower_id { 1 }
+  factory :conversation do
+    sender_id { "" }
+    recipient_id { "" }
   end
 end

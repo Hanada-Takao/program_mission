@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resource :favorites, only: %i[create destroy]
   end
   resources :conversations do
-    resouces :messsages
+    resources :messages
   end
 
 end
