@@ -9,12 +9,12 @@
             <small class="text-muted">更新日：<%= @blog.updated_at.strftime("%Y-%m-%d") %></small>
           </p>
           <% if current_user.already_favorited?(@blog) %>
-            <%= link_to favorites_path(@blog), method: :delete do %>
+            <%= button_to blog_favorites_path(@blog), method: :delete do %>
               <i class="fas fa-heart"></i>
             <% end %>
             <%= @blog.favorites.count %>
           <% else %>
-            <%= link_to favorites_path(@blog), method: :post do %>
+            <%= button_to blog_favorites_path(@blog), method: :post do %>
               <i class="far fa-heart"></i>
             <% end %>
             <%= @blog.favorites.count %>
