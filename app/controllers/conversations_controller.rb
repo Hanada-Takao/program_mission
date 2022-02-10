@@ -1,5 +1,9 @@
 class ConversationsController < ApplicationController
-  before_action :aouthenticate_user!
+  before_action :authenticate_user!
+
+  def index
+    @conversations = Conversation.all
+  end
 
   def create
     if Conversation.between(params[:sender_id], params[:recipient_id]).present?
@@ -8,10 +12,6 @@ class ConversationsController < ApplicationController
       @conversation = Conversation.create!(conversation_params)
     end
     redirect_to conversation_messages_path(@conversation)
-  end
-
-  def index
-    @conbersations = Conversation.all
   end
 
   private
