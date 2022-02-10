@@ -18,12 +18,9 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    Favorite.find_by(params[:blog_id]).destroy
-    flash[:success] = "お気に入りを解除しました"
-    redirect_to blogs_path
-    # @blog = Blog.find(params[:blog_id])
-    # @favorite = current_user.favorites.find_by(blog_id: @blog.id)
-    # @favorite.destroy
-    # redirect_back(fallback_location: root_path)
+    @blog = Blog.find(params[:blog_id])
+    @favorite = current_user.favorites.find_by(blog_id: @blog.id)
+    @favorite.destroy
+    redirect_back(fallback_location: root_path)
   end
 end
