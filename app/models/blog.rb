@@ -6,6 +6,7 @@ class Blog < ApplicationRecord
   has_many :comments
   has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favorites, source: 'user'
+  has_many_attached :images
 end
 
 # == Schema Information
