@@ -3,8 +3,20 @@
     <div class="col-6 mx-auto">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title"><%= @blog.title %></h5>
-          <p class="card-text"><%= simple_format @blog.content %></p>
+          <div class="card-header">
+            <h4><%= @blog.title %></h4>
+          </div>
+          <div class="card-body">
+            <p class="card-text"><%= simple_format(@blog.content) %></p>
+            <p class="text-right font-weight-bold mr-10"><%= @blog.user.user_name %></p>
+            <p class="card-image">
+            <% if @blog.images.attached? %>
+              <% @blog.images.each do |image| %>
+                <%= image_tag image %> <br>
+              <% end %>
+            <% end %>
+            </p>
+          </div>
           <p class="card-text">
             <small class="text-muted">更新日：<%= @blog.updated_at.strftime("%Y-%m-%d") %></small>
           </p>
@@ -30,14 +42,6 @@
 </div>
 
 <div class="card">
-  <div class="card-header">
-    <h4><%= @blog.title %></h4>
-  </div>
-  <div class="card-body">
-    <p class="card-text"><%= simple_format(@blog.content) %></p>
-    <p class="text-right font-weight-bold mr-10"><%= @blog.user.user_name %></p>
-  </div>
-
   <% if flash[:notice] %>
     <div class = "alert alert-primary"><%= flash[:notice] %></div>
   <% end %>

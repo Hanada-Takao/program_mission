@@ -4,6 +4,7 @@ class BlogsController < ApplicationController
 
   def index
     @blogs = Blog.page(params[:page])
+    @blog = Blog.new
   end
 
   def new
@@ -11,8 +12,8 @@ class BlogsController < ApplicationController
   end
 
   def create
-    @blog = current_user.blogs.build(blog_params)
-    binding.pry
+    @blog = Blog.new(blog_params)
+    @blog.user_id = current_user.id
     if @blog.save
       redirect_to blog_path(@blog), flash: { notice: "「#{@blog.title}のブログを作成しました」"}
     else
@@ -26,6 +27,7 @@ class BlogsController < ApplicationController
   def show
     @comment = Comment.new(blog_id: @blog.id)
     @favorite = current_user.favorites.find_by(blog_id: @blog.id)
+    @blog = Blog.find(params[:id])
     # @comment = @blog.comments.new
     # @comment = Comment.new
   end
@@ -56,7 +58,7 @@ class BlogsController < ApplicationController
   private
 
   def blog_params
-    params.require(:blog).permit(:title, :content, :image)
+    params.require(:blog).permit(:title, :content, :user_id, images: [])
   end
 
   def set_target_blog
