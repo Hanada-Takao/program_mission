@@ -1,37 +1,58 @@
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-10 mx-auto">
-      <table class="table table-hover">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">ブログ</th>
-            <th scope="col">投稿者</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @blogs.each do |blog| %>
-            <tr>
-              <td><%= link_to blog.title, blog_path(blog) %></td>
-              <td><%= blog.user.user_name %></td>
-              <td>
-                <% if current_user.already_favorited?(blog) %>
-                  <%= button_to blog_favorites_path(blog), method: :delete do %>
-                    <i class="fas fa-heart"></i>
-                  <% end %>
-                  <%= blog.favorites.count %>
-                <% else %>
-                  <%= button_to blog_favorites_path(blog), method: :post do %>
-                    <i class="far fa-heart"></i>
-                  <% end %>
-                  <%= blog.favorites.count %>
-                <% end %>
-              </td>
-            </tr>
+<div class="content-wrapper">
+  <div class="content-block">
+    <% @blogs.each do |blog| %>
+    <div class="content">
+      <div class="user-about">
+        <% if blog.user.image.attached? %>
+          <div class="user-image">
+            <%= image_tag blog.user.image %>
+          </div>
+        <% else %>
+          <div class="user-image">
+            <%= image_tag "女性横顔.jpeg" %>
+          </div>
+        <% end %>
+        <div class="user-profile">
+          <div class="user-name">
+            <th> 投稿者 ：</th>
+            <th><%= blog.user.user_name %></th>
+          </div>
+        </div>
+      </div>
+
+      <tr class="blog-title">
+        <th> タイトル   ：</th>
+        <th><%= link_to blog.title, blog_path(blog) %></th>
+      </tr>
+      <div class="blog-content">
+        <th> コンテンツ ：</th>
+        <th><%= blog.content %></th>
+      </div>
+      <div class="action-manu">
+        <div class="like">
+          <% if current_user.already_favorited?(blog) %>
+            <%= button_to blog_favorites_path(blog), method: :delete do %>
+              <i class="fas fa-heart"></i>
+            <% end %>
+            <%= blog.favorites.count %>
+          <% else %>
+            <%= button_to blog_favorites_path(blog), method: :post do %>
+              <i class="far fa-heart"></i>
+            <% end %>
+            <%= blog.favorites.count %>
           <% end %>
-        </tbody>
-      </table>
+        </div>
+        <div class="comment">
+          <i class="fa-solid fa-comment"></i>
+          <%= blog.comments.count %>
+        </div>
+      </div>
     </div>
+    <% end %>
+  </div>
+  <div class="side-bar">
+    <div class="box"></div>
+    <div class="box"></div>
   </div>
 </div>
 

@@ -3,8 +3,9 @@ class BlogsController < ApplicationController
   before_action :authenticate_user!, only: %i[show create]
 
   def index
-    @blogs = Blog.page(params[:page])
-    @blog = Blog.new
+    #フォローしているユーザーと自分の投稿
+    @blogs = Blog.where(user_id: [current_user.id, *current_user.following_ids]).page(params[:page])
+    # @blog = Blog.new
   end
 
   def new

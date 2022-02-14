@@ -12,7 +12,7 @@
             <p class="card-image">
             <% if @blog.images.attached? %>
               <% @blog.images.each do |image| %>
-                <%= image_tag image %> <br>
+                <%= image_tag image, class: "img-thumbnail" %> <br>
               <% end %>
             <% end %>
             </p>

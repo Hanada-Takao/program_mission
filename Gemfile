@@ -15,7 +15,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rubocop', require: false
 gem 'rubocop-rails'
 gem 'rubocop-checkstyle_formatter'
-gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'mini_magick', '~> 4.8'
 gem 'seed-fu', '~> 2.3'
