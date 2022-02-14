@@ -1,0 +1,35 @@
+<div class="content-wrapper">
+  <div class="content-block">
+    <% @missions.each do |mission| %>
+    <div class="content">
+      <div class="user-about">
+        <% if mission.user.image.attached? %>
+          <div class="user-image">
+            <%= image_tag mission.user.image %>
+          </div>
+        <% else %>
+          <div class="user-image">
+            <%= image_tag "女性横顔.jpeg" %>
+          </div>
+        <% end %>
+        <div class="user-profile">
+          <div class="user-name">
+            <th> 投稿者 ：</th>
+            <th><%= mission.user.user_name %></th>
+          </div>
+        </div>
+      </div>
+
+      <tr class="mission-main">
+        <th> メソッド名   ：</th>
+        <th><%= link_to mission.input_main, mission_path(mission) %></th>
+      </tr>
+      <div class="mission-reading">
+        <th> コンテンツ ：</th>
+        <th><%= mission.input_reading %></th>
+      </div>
+    </div>
+    <% end %>
+</div>
+
+<%= paginate @missions %>
