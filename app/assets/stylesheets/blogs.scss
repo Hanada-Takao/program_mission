@@ -9,3 +9,100 @@
     margin: 0 8px;
   }
 }
+
+img {
+  max-width: 100%;
+}
+
+#blogs-index {
+  .content-wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    .content-block {
+      border: solid 2px #000;
+      width: 60%;
+      padding: 20px;
+
+      .content{
+        border: 2px solid #000;
+        padding: 15px;
+        margin-bottom: 10px;
+        .user-about{
+          display: flex;
+          margin-bottom: 15PX;
+
+          .user-image{
+            width: 10%;
+            margin-right: 10PX;
+          }
+          .user-name{
+            width: 100%;
+            margin-bottom: 10pX;
+            font-weight: bold;
+          }
+          .user-email{
+            width: 40%;
+          }
+        }
+        .blog-title{
+
+        }
+        .blog-content{
+
+        }
+      }
+    }
+
+    .side-bar {
+    border: solid 2px #000;
+    width: 20%;
+    padding: 20px;
+
+      .box {
+        background-color: #000;
+        width: 100px;
+        height: 100px;
+        margin: 10px auto;
+      }
+    }
+  }
+}
+
+#blogs-new{
+  form{
+    input{
+      width: 90%;
+      margin-left: 10px;
+    }
+    textarea{
+      width: 90%;
+      margin-left: 10px;
+    }
+    .submit-block{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 15px 0;
+      .button {
+        display       : inline-block;
+        border-radius : 5%;          /* 角丸       */
+        font-size     : 14pt;        /* 文字サイズ */
+        text-align    : center;      /* 文字位置   */
+        cursor        : pointer;     /* カーソル   */
+        padding       : 12px 12px;   /* 余白       */
+        background    : #333;     /* 背景色     */
+        color         : #ffffff;     /* 文字色     */
+        line-height   : 1em;         /* 1行の高さ  */
+        transition    : .3s;         /* なめらか変化 */
+        box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+        border        : 2px solid #333;    /* 枠の指定 */
+      }
+      .button:hover {
+        box-shadow    : none;        /* カーソル時の影消去 */
+        color         : #333;     /* 背景色     */
+        background    : #ffffff;     /* 文字色     */
+      }
+    }
+  }
+}
