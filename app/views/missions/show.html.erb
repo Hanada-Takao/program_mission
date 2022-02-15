@@ -39,9 +39,9 @@
 <div class="card">
   <p class="card-text">
     <% @mission.tags.each do |tag| %>
-      <span><%= tag.tag_name %></span>
+      <span class="badge rounded-pill bg-primary"><%= tag.tag_name %></span>
     <% end %>
-    <p class="text-right font-weight-bold mr-10"><%= @mission.user.user_name %></p>
+    <p class="text-muted"><%= @mission.user.user_name %></p>
     <small class="text-muted">更新日：<%= @mission.updated_at.strftime("%Y-%m-%d") %></small>
   </p>
   <% if @mission.user == current_user %>
