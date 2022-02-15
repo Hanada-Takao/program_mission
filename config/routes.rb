@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
-  resources :missions
+  resources :missions do
+    collection do
+      get 'search'
+    end
+  end
 
 end

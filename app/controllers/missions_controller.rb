@@ -1,7 +1,10 @@
 class MissionsController < ApplicationController
+  # before_action :set_q, only: %i[index search]
 
   def index
-    @missions = Mission.all.page(params[:page])
+    @q = Mission.ransack(params[:q])
+    @tags = Tag.all
+    @missions = @q.result(distinct: true).page(params[:page])
   end
 
   def new
@@ -50,7 +53,16 @@ class MissionsController < ApplicationController
     redirect_to missions_path, flash: { notice: "「#{@mission.input_main}のブログが削除されました」"}
   end
 
+  def search
+    @q = Mission.search(search_params)
+    @missions = @q.result(distinct: true)
+  end
+
   private
+
+  def search_params
+    params.require(:q).permit(:tags_id_in)
+  end
 
   def mission_params
     params.require(:mission).permit(:input_alias, :input_description, :input_library, :input_main, :input_reading,
