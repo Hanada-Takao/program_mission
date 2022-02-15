@@ -1,0 +1,55 @@
+<div class="grid-container">
+  <div class="grid-item">
+    <h4><%= @mission.input_main %></h4>
+  </div>
+
+  <div class="grid-item">
+    <p class="card-text"><%= simple_format(@mission.input_reading ) %></p>
+  </div>
+
+  <div class="grid-item">
+    <p class="card-text"><%= simple_format(@mission.input_reading ) %></p>
+  </div>
+
+  <div class="grid-item">
+    <p class="card-text"><%= simple_format(@mission.input_reading ) %></p>
+  </div>
+
+  <div class="grid-item">
+    <p class="card-text"><%= simple_format(@mission.input_reading ) %></p>
+  </div>
+
+  <div class="grid-item">
+    <p class="card-text"><%= simple_format(@mission.input_reading ) %></p>
+  </div>
+
+  <div class="grid-item">
+    <p class="card-text"><%= simple_format(@mission.input_reading ) %></p>
+  </div>
+
+  <div class="grid-item">
+    <p class="card-text"><%= simple_format(@mission.input_reading ) %></p>
+  </div>
+
+  <div class="grid-item">
+    <p class="card-text"><%= simple_format(@mission.input_reading ) %></p>
+  </div>
+</div>
+
+<div class="card">
+  <p class="card-text">
+    <p class="text-right font-weight-bold mr-10"><%= @mission.user.user_name %></p>
+    <small class="text-muted">更新日：<%= @mission.updated_at.strftime("%Y-%m-%d") %></small>
+  </p>
+  <% if @mission.user == current_user %>
+    <%= link_to '編集', edit_mission_path(@mission), class: "btn btn-success" %>
+    <%= button_to '削除', mission_path(@mission), method: :delete, class: "btn btn-danger" %>
+  <% end %>
+</div>
+
+
+<div class="card">
+  <% if flash[:notice] %>
+    <div class = "alert alert-primary"><%= flash[:notice] %></div>
+  <% end %>
+</div>

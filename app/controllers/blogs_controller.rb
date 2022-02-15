@@ -28,13 +28,11 @@ class BlogsController < ApplicationController
   def show
     @comment = Comment.new(blog_id: @blog.id)
     @favorite = current_user.favorites.find_by(blog_id: @blog.id)
-    @blog = Blog.find(params[:id])
     # @comment = @blog.comments.new
     # @comment = Comment.new
   end
 
   def edit
-    @blog = Blog.find(params[:id])
     if @blog.user != current_user
       redirect_to blogs_path, alert: '不正なアクセスです。'
     end
@@ -52,8 +50,8 @@ class BlogsController < ApplicationController
   end
 
   def destroy
-    blog.destroy
-    redirect_to blogs_path, flash: { notice: "「#{blog.title}のブログが削除されました」"}
+    @blog.destroy
+    redirect_to blogs_path, flash: { notice: "「#{@blog.title}のブログが削除されました」"}
   end
 
   private

@@ -1,0 +1,52 @@
+<%= render 'shared/error_messages' %>
+
+<%= form_with model: @mission, local: true  do |f| %>
+  <div class="form-group">
+    <%= f.label :input_main, 'メソッド名' %><br />
+    <%= f.text_field :input_main, autofocus: true, autocomplete: "input_main", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :input_reading, '読み方' %>
+    <%= f.text_field :input_reading, autofocus: true, autocomplete: "input_reading", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :input_library, '組み込みライブラリ' %>
+    <%= f.text_field :input_library, autofocus: true, autocomplete: "input_library", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :input_alias, 'エイリアス' %>
+    <%= f.text_field :input_alias, autofocus: true, autocomplete: "input_alias", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :input_related, '関連語' %>
+    <%= f.text_field :input_related, autofocus: true, autocomplete: "input_related", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :input_sample, 'サンプル' %>
+    <%= f.text_field :input_sample, autofocus: true, autocomplete: "input_sample", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :input_description, '説明文' %>
+    <%= f.text_field :input_description, autofocus: true, autocomplete: "input_description", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :input_reference_site, 'リファレンスサイト' %>
+    <%= f.text_field :input_reference_site, autofocus: true, autocomplete: "input_reference_site", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :input_remarks, 'その他' %>
+    <%= f.text_area :input_remarks, autofocus: true, autocomplete: "input_remarks", class: 'form-control', rows: 5 %>
+  </div>
+
+  <div class="submit-block">
+    <%= f.submit '保存', class: 'button' %>
+  </div>
+<% end %>

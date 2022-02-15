@@ -15,7 +15,7 @@
         <div class="user-profile">
           <div class="user-name">
             <th> 投稿者 ：</th>
-            <th><%= blog.user.user_name %></th>
+            <th><%= link_to blog.user.user_name, user_path(blog) %></th>
           </div>
         </div>
       </div>
@@ -46,6 +46,9 @@
           <i class="fa-solid fa-comment"></i>
           <%= blog.comments.count %>
         </div>
+        <p class="card-text">
+          <small class="text-muted">更新日：<%= blog.updated_at.strftime("%Y-%m-%d") %></small>
+        </p>
       </div>
     </div>
     <% end %>
