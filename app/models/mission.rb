@@ -1,5 +1,8 @@
 class Mission < ApplicationRecord
   belongs_to :user
+
+  has_many :mission_tags_relations, dependent: :destroy
+  has_many :tags, through: :mission_tags_relations
 end
 
 # == Schema Information

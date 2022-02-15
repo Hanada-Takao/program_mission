@@ -46,7 +46,20 @@
     <%= f.text_area :input_remarks, autofocus: true, autocomplete: "input_remarks", class: 'form-control', rows: 5 %>
   </div>
 
-  <div class="submit-block">
-    <%= f.submit '保存', class: 'button' %>
+  <div class="form-group">
+    <span>タグ</span>
+    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :tag_name) do |tag| %>
+      <div class="form-check">
+        <%= tag.label class: 'form-check-label' do %>
+          <%= tag.check_box class: 'form-check-input' %>
+          <%= tag.text %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
+
+  <div class="submit-block">
+    <%= f.submit '保存', class: 'btn btn-primary' %>
+  </div>
+
 <% end %>

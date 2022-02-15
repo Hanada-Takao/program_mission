@@ -53,6 +53,7 @@ class MissionsController < ApplicationController
   private
 
   def mission_params
-    params.require(:mission).permit(:input_alias, :input_description, :input_library, :input_main, :input_reading, :input_reference_site, :input_related, :input_remarks, :input_sample)
+    params.require(:mission).permit(:input_alias, :input_description, :input_library, :input_main, :input_reading,
+                                    :input_reference_site, :input_related, :input_remarks, :input_sample, tag_ids: [])
   end
 end
