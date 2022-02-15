@@ -26,12 +26,28 @@ class MissionsController < ApplicationController
   end
 
   def edit
+    @mission = Mission.find(params[:id])
+    if @mission.user != current_user
+      redirect_to missions_path, aleart: '不正なアクセスです'
+    end
   end
 
   def update
+    @mission = Mission.find(params[:id])
+    if @mission.update(mission_params)
+      redirect_to mission_path(@mission), notice: '更新に成功しました'
+    else
+      redirect_to edit_mission_path, flash: {
+        mission: @mission,
+        error_messages: @mission.error.full_messages
+      }
+    end
   end
 
   def destroy
+    @mission = Mission.find(params[:id])
+    @mission.destroy
+    redirect_to missions_path, flash: { notice: "「#{@mission.input_main}のブログが削除されました」"}
   end
 
   private

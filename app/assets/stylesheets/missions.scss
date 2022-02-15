@@ -76,3 +76,46 @@
     //   -ms-grid-column: span 1;
     // }
 }
+
+#missions-index {
+  .content-wrapper {
+    // display: flex;
+    // justify-content: space-between;
+
+    .content-block {
+      border: 5px solid #333;
+      width: 60%;
+      margin: 30px auto;
+      padding: 25px;
+      border-radius: 14px;
+
+      .content{
+        margin: 30px auto;
+        border: 5px solid #333;
+        padding: 25px;
+        border-radius: 14px;
+        .user-about{
+          display: flex;
+          margin-bottom: 15PX;
+
+          .user-image{
+            width: 10%;
+            margin-right: 10PX;
+          }
+          .user-name{
+            width: 100%;
+            margin-bottom: 10pX;
+            font-weight: bold;
+          }
+          .user-email{
+            width: 40%;
+          }
+        }
+        .blog-title{
+        }
+        .blog-content{
+        }
+      }
+    }
+  }
+}

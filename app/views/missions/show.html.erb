@@ -43,7 +43,7 @@
   </p>
   <% if @mission.user == current_user %>
     <%= link_to '編集', edit_mission_path(@mission), class: "btn btn-success" %>
-    <%= link_to '削除', mission_path(@mission), method: :delete, class: "btn btn-danger" %>
+    <%= button_to '削除', mission_path(@mission), method: :delete, class: "btn btn-danger" %>
   <% end %>
 </div>
 
