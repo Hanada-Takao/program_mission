@@ -24,6 +24,8 @@ gem 'ransack'
 gem 'rails-i18n'
 gem 'mini_racer'
 gem 'bootstrap'
+gem 'rails_admin', ['>= 3.0.0.rc', '< 4']
+gem 'cancancan'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
