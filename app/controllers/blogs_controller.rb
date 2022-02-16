@@ -28,6 +28,7 @@ class BlogsController < ApplicationController
   def show
     @comment = Comment.new(blog_id: @blog.id)
     @favorite = current_user.favorites.find_by(blog_id: @blog.id)
+    @comments = @blog.comments.order(created_at: :desc)
     # @comment = @blog.comments.new
     # @comment = Comment.new
   end

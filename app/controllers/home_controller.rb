@@ -11,5 +11,4 @@ class HomeController < ApplicationController
     sign_in user
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
-
 end

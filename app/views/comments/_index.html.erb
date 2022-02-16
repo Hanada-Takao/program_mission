@@ -1,0 +1,36 @@
+<%= comments.count %>件コメント
+<% comments.each do |comment| %>
+  <% unless comment.id.nil? %>
+    <li class="comment-container">
+      <div class="p-comment__item">
+        <div class="comment-avatar">
+          <% if comment.user.image.attached? %>
+            <div class="user-image">
+              <%= image_tag comment.user.image %>
+            </div>
+          <% else %>
+            <div class="user-image">
+              <%= image_tag "kkrn_icon_user_3" %>
+            </div>
+          <% end %>
+        </div>
+        <div class="comment-entry">
+          <%= comment.comment_name %><br>
+          <%= comment.comment %>
+        </div>
+        <div class="p-comment__bottomLine">
+          <p><%= link_to "#{comment.user.user_name}", user_path(comment.user.id) %></p>
+
+          <% if comment.user == current_user %>
+            <%= button_to blog_comment_path(comment.blog_id, comment.id), method: :delete, remote: true, class: "comment_destroy" do %>
+                <i class="fas fa-trash" style="color: black;"></i>
+            <% end %>
+          <% end %>
+          <span class="comment-date pull-right">
+            <%= comment.created_at.to_s(:datetime_jp) %>
+          </span>
+        </div>
+      </div>
+    </li>
+  <% end %>
+<% end %>

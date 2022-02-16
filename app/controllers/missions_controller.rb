@@ -50,7 +50,7 @@ class MissionsController < ApplicationController
   def destroy
     @mission = Mission.find(params[:id])
     @mission.destroy
-    redirect_to missions_path, flash: { notice: "「#{@mission.input_main}のブログが削除されました」"}
+    redirect_to missions_path, flash: { notice: "「#{@mission.input_main}のmissionが削除されました」"}
   end
 
   def search
