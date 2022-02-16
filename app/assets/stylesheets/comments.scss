@@ -33,8 +33,15 @@
   font-size: 15px;
   text-align: right;
 
-  > span {
+  span {
     font-size: 14px;
     margin: 0 12px;
   }
+}
+img {
+  max-width: 100%;
+}
+.user-image{
+  width: 5%;
+  margin-right: 10PX;
 }

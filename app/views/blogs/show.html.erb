@@ -41,15 +41,16 @@
   </div>
 </div>
 
-<div class="card">
-  <% if flash[:notice] %>
-    <div class = "alert alert-primary"><%= flash[:notice] %></div>
-  <% end %>
+<div id="comments_area">
+  <div class="p-comment__list" >
+    <div class="p-comment__listTitle">コメント</div>
+    <%= render partial: 'comments/index', locals: { comments: @comments, blog: @blog } %>
+  </div>
 </div>
-
-<div class="p-comment__list">
-  <div class="p-comment__listTitle">コメント</div>
-  <%= render @blog.comments %>
-</div>
-
-<%= render partial: 'comments/form', locals: { comment: @comment } %>
+<hr>
+<% if user_signed_in? %>
+  <div class="comment-create">
+      <h5 class="text-left">コメントを投稿する</h5>
+      <%= render partial: 'comments/form', locals: { comment: @comment, blog: @blog } %>
+  </div>
+<% end %>
