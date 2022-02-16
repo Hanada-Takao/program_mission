@@ -8,7 +8,7 @@
           </div>
           <div class="card-body">
             <p class="card-text"><%= simple_format(@blog.content) %></p>
-            <p class="text-right font-weight-bold mr-10"><%= @blog.user.user_name %></p>
+            <p class="text-right font-weight-bold mr-10"><%= link_to "#{@blog.user.user_name}", user_path(@blog.user.id) %></p>
             <p class="card-image">
             <% if @blog.images.attached? %>
               <% @blog.images.each do |image| %>
