@@ -17,6 +17,9 @@
         <li>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
         </li>
+        <li>
+          <%= button_to "ゲストログイン（閲覧用）", home_guest_sign_in_path, method: :post  %>
+        </li>
     </ul>
     </div>
 </div>
