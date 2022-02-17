@@ -11,62 +11,9 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <%= link_to 'program mission', root_path, class: "navbar-brand" %>
-      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-        <% if user_signed_in? %>
-          <div class="collapse navbar-collapse" id="Navber">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <%= link_to 'マイページ', user_path(current_user.id), class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to 'ユーザー一覧', users_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                  <%= link_to 'ブログ投稿', new_blog_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                  <%= link_to 'ブログ一覧', blogs_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                  <%= link_to 'ミッション投稿', new_mission_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                  <%= link_to 'ミッション一覧', missions_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
-              </li>
-            </ul>
-          </div>
-        <% else %>
-          <div class="collapse navbar-collapse" id="Navber">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <%= link_to 'ログイン', new_user_session_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to '新規登録', new_user_registration_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <%= button_to "ゲストログイン（閲覧用）", home_guest_sign_in_path, method: :post, class: "nav-link" %>
-              </li>
-            </ul>
-          </div>
-        <% end %>
-    </nav>
-
-    <% if flash[:notice] %>
-      <div class="alert alert-primary" role="alert"><strong><%= notice %></strong></div>
-    <% end %>
-    <% if flash[:alert] %>
-      <div class="alert alert-danger" role="alert"><strong><%= alert %></strong></div>
-    <% end %>
     <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
     <%= render 'shared/header' %>
+    <%= render 'shared/error_messages' %>
     <%= yield %>
     <%= render 'shared/footer' %>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>

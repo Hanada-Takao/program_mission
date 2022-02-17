@@ -1,25 +1,50 @@
 
 <div id="header">
-  <div class="logo">
-    <a href="/">Program_Mission</a>
-  </div>
-    <div class="link">
-      <ul id="nav">
-        <li>
-          <%= link_to 'マイページ', users_path, class: "nav-link" %>
-        </li>
-        <li>
-          <%= link_to '新規投稿', new_blog_path, class: "nav-link" %>
-        </li>
-        <li>
-          <%= link_to '投稿一覧', blogs_path, class: "nav-link" %>
-        </li>
-        <li>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
-        </li>
-        <li>
-          <%= button_to "ゲストログイン（閲覧用）", home_guest_sign_in_path, method: :post  %>
-        </li>
-    </ul>
-    </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <%= link_to 'program mission', root_path, class: "navbar-brand" %>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <% if user_signed_in? %>
+        <div class="collapse navbar-collapse" id="Navber">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <%= link_to 'マイページ', user_path(current_user.id), class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'ユーザー一覧', users_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'ブログ投稿', new_blog_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'ブログ一覧', blogs_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'ミッション投稿', new_mission_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'ミッション一覧', missions_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
+            </li>
+          </ul>
+        </div>
+      <% else %>
+        <div class="collapse navbar-collapse" id="Navber">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <%= link_to 'ログイン', new_user_session_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '新規登録', new_user_registration_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= button_to "ゲストログイン（閲覧用）", home_guest_sign_in_path, method: :post, class: "nav-link" %>
+            </li>
+          </ul>
+        </div>
+      <% end %>
+  </nav>
 </div>
