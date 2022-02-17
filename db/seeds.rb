@@ -13,7 +13,7 @@ User.create!(
   password: 'password',
   admin: 'true'
 )
-5.times do |n|
+10.times do |n|
   user = User.create!(
     user_name: "sample_name#{n + 1}",
     email: "sample#{n + 1}@sample.com",
@@ -23,7 +23,7 @@ User.create!(
                   filename: "user_#{n + 1}.jpg")
 end
 
-5.times do |n|
+30.times do |n|
   blog = Blog.create!(
     title: "sample_name#{n + 1}",
     content: "sample_content#{n + 1}",
@@ -43,7 +43,7 @@ end
     { tag_name: '英語' }
   ])
 
-5.times do |n|
+30.times do |n|
   Mission.create!(
     input_main: "sample_input_main#{n + 1}",
     input_reading: "sample_input_reading#{n + 1}",
@@ -64,7 +64,7 @@ Mission.all.ids.sort.each do |mission_id|
   end
 end
 
-10.times do |n|
+30.times do |n|
   Comment.create!(
     comment_name: "sample#{n + 1}",
     comment: "sample_comment#{n + 1}",
@@ -82,7 +82,7 @@ end
 5.times do |n|
   Message.create!(
     body: "sample_message#{n + 1}",
-    conversation_id: "#{ n + 1}",
+    conversation_id: "#{n + 1}",
     user_id: "#{1}",
   )
 end
