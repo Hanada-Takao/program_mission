@@ -10,16 +10,27 @@
 User.create!(
   email: 'admin@admin.com',
   user_name: 'Admin_User',
-  password: 'admin@admin.com',
+  password: 'password',
   admin: 'true'
 )
 5.times do |n|
-  User.create!(
+  user = User.create!(
     user_name: "sample_name#{n + 1}",
     email: "sample#{n + 1}@sample.com",
     password: 'password',
   )
+  user.image.attach(io: File.open(Rails.root.join("app/assets/images/user_#{n + 1}.jpg")),
+                  filename: "user_#{n + 1}.jpg")
 end
+
+5.times do |n|
+  Blog.create!(
+    title: "sample_name#{n + 1}",
+    content: "sample_description#{n + 1}",
+    user_id: "#{User.all.pluck(:id).sample}"
+  )
+end
+
   Tag.create([
     { tag_name: 'HTML' },
     { tag_name: 'CSS' },
