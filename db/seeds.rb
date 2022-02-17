@@ -23,7 +23,7 @@ User.create!(
                   filename: "user_#{n + 1}.jpg")
 end
 
-30.times do |n|
+13.times do |n|
   blog = Blog.create!(
     title: "sample_name#{n + 1}",
     content: "sample_content#{n + 1}",
