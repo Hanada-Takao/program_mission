@@ -72,22 +72,32 @@ end
     blog_id: "#{Blog.all.pluck(:id).sample}",
   )
 end
+5.times do |n|
+Conversation.create(
+  recipient_id: "#{n + 1}",
+  sender_id: "#{2 + 1}"
+)
+end
 
-# 5.times do |n|
-#   Conversation.create!(
-#     recipient_id: "#{n + 1}",
-#     sender_id: "#{6 - 1}"
-#   )
-# end
+5.times do |n|
+  Message.create!(
+    body: "sample_message#{n + 1}",
+    conversation_id: "#{ n + 1}",
+    user_id: "#{1}",
+  )
+end
 
-# 5.times do |n|
-#   Message.create!(
-#     body: "sample_message#{n + 1}",
-#   )
-# end
-# User.all.ids.sort.each do |user_id|
-#   Message.all.ids.sort.each do |message_id|
-#     Conversation.create(user_id_id: user_id, message_id: message_id)
-#   end
-# end
+User.all.ids.sort.each do |user_id|
+  Blog.all.ids.sort.each do |blog_id|
+    Favorite.create(user_id: user_id, blog_id: blog_id)
+  end
+end
+
+User.all.ids.sort.each do |following_id|
+  User.all.ids.sort.each do |follower_id|
+    Relationship.create(following_id: following_id, follower_id: follower_id)
+  end
+end
+
+
 
