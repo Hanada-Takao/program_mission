@@ -5,14 +5,27 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-if Rails.env == 'development'
-  # (1..50).each do |i|
-  #   Blog.create(title: "タイトル#{i}", content: "コンテンツ#{i}")
-  # end
+# require 'faker'
+
+User.create!(
+  email: 'admin@admin.com',
+  user_name: 'Admin_User',
+  password: 'admin@admin.com',
+  admin: 'true'
+)
+5.times do |n|
+  User.create!(
+    user_name: "sample_name#{n + 1}",
+    email: "sample#{n + 1}@sample.com",
+    password: 'password',
+  )
+end
   Tag.create([
+    { tag_name: 'HTML' },
+    { tag_name: 'CSS' },
+    { tag_name: 'JavaScript' },
     { tag_name: 'Ruby' },
     { tag_name: 'Ruby on Rails' },
     { tag_name: '漢字' },
     { tag_name: '英語' }
   ])
-end
