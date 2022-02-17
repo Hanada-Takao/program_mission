@@ -112,3 +112,17 @@ img {
 .like{
   display: flex;
 }
+
+#blogs-show {
+  #comments_area {
+    .card-body {margin-bottom: 10px;
+      border: 5px solid #333;
+      .comment-avatar {
+        .user-image {
+          width: 15%;
+          margin-right: 10PX;
+        }
+      }
+    }
+  }
+}

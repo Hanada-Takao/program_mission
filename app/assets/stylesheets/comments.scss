@@ -41,7 +41,9 @@
 img {
   max-width: 100%;
 }
-.user-image{
-  width: 5%;
-  margin-right: 10PX;
+.comment-avatar{
+  .user-image{
+    width: 15%;
+    margin-right: 10PX;
+  }
 }
