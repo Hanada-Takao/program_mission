@@ -72,14 +72,14 @@ end
     blog_id: "#{Blog.all.pluck(:id).sample}",
   )
 end
-5.times do |n|
+10.times do |n|
 Conversation.create(
   recipient_id: "#{n + 1}",
   sender_id: "#{2 + 1}"
 )
 end
 
-5.times do |n|
+10.times do |n|
   Message.create!(
     body: "sample_message#{n + 1}",
     conversation_id: "#{n + 1}",
