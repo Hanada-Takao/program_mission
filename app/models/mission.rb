@@ -3,6 +3,16 @@ class Mission < ApplicationRecord
 
   has_many :mission_tags_relations, dependent: :destroy
   has_many :tags, through: :mission_tags_relations
+
+  validates :input_main, presence: true, length: { maximum: 30 }
+  validates :input_alias, length: { maximum: 255 }
+  validates :input_description, length: { maximum: 255 }
+  validates :input_library, length: { maximum: 255 }
+  validates :input_reading, length: { maximum: 255 }
+  validates :input_reference_site, length: { maximum: 255 }
+  validates :input_related, length: { maximum: 255 }
+  validates :input_remarks, length: { maximum: 255 }
+  validates :input_sample, length: { maximum: 255 }
 end
 
 # == Schema Information

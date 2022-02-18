@@ -12,14 +12,14 @@
 #
 require 'rails_helper'
 
-RSpec.describe 'タスク管理機能', type: :system do
+RSpec.describe 'ブログ管理機能', type: :system do
   let!(:user_a) { create(:user_admin) }
   let!(:blog_a) { create(:blog_1) }
   let!(:blog_b) { create(:blog_2) }
   let!(:blog_c) { create(:blog_3) }
 
   describe 'ブログ登録のテスト' do
-    context 'タスクを新規作成した場合' do
+    context 'ブログを新規作成した場合' do
       it 'ブログの新規作成が成功' do
         admin_login
         visit new_blog_path
@@ -33,7 +33,7 @@ RSpec.describe 'タスク管理機能', type: :system do
 
   describe '一覧表示機能' do
     context '一覧画面に遷移した場合' do
-      it '作成済みのタスク一覧が表示される' do
+      it '作成済みのブログ一覧が表示される' do
         admin_login
         visit blogs_path
         current_path
@@ -45,8 +45,8 @@ RSpec.describe 'タスク管理機能', type: :system do
   end
 
   describe '詳細表示機能' do
-    context '任意のタスク詳細画面に遷移した場合' do
-      it '該当タスクの内容が表示される' do
+    context '任意のブログ詳細画面に遷移した場合' do
+      it '該当ブログの内容が表示される' do
         admin_login
         visit blog_path(blog_a)
         expect(page).to have_content 'Factoryで作ったデフォルトのtitle１'
@@ -55,8 +55,8 @@ RSpec.describe 'タスク管理機能', type: :system do
   end
 
   describe 'ブログ編集機能' do
-    context '任意のタスクを編集・保存した場合' do
-      it '該当タスクの内容が更新される' do
+    context '任意のブログを編集・保存した場合' do
+      it '該当ブログの内容が更新される' do
         admin_login
         visit edit_blog_path(blog_a)
         click_button '保存'
@@ -66,8 +66,8 @@ RSpec.describe 'タスク管理機能', type: :system do
   end
 
   describe 'ブログの削除機能' do
-    context '任意のタスク詳細画面に遷移した場合' do
-      it '該当タスクの削除が表示される' do
+    context '任意のブログ詳細画面に遷移した場合' do
+      it '該当ブログの削除が表示される' do
         admin_login
         visit blog_path(blog_a)
         click_button '削除'

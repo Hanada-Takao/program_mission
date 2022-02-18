@@ -25,16 +25,42 @@
 #  fk_rails_...  (user_id => users.id)
 #
 FactoryBot.define do
-  factory :mission do
-    input_main { "MyString" }
-    input_reading { "MyString" }
-    input_library { "MyString" }
-    input_alias { "MyString" }
-    input_related { "MyString" }
-    input_sample { "MyString" }
-    input_description { "MyText" }
-    input_reference_site { "MyString" }
-    input_remarks { "MyText" }
-    user { nil }
+  factory :mission_1 , class: Mission do
+    input_main { "input_main１" }
+    input_reading { "input_reading１" }
+    input_library { "input_library１" }
+    input_alias { "input_alias１" }
+    input_related { "input_related１" }
+    input_sample { "input_sample１" }
+    input_description { "input_description１" }
+    input_reference_site { "input_reference_site１" }
+    input_remarks { "input_remarks１" }
+    user_id { 1 }
+  end
+
+  factory :mission_2 , class: Mission do
+    input_main { "input_main２" }
+    input_reading { "input_reading２" }
+    input_library { "input_library２" }
+    input_alias { "input_alias２" }
+    input_related { "input_related２" }
+    input_sample { "input_sample２" }
+    input_description { "input_description２" }
+    input_reference_site { "input_reference_site２" }
+    input_remarks { "input_remarks２" }
+    user_id { 1 }
+  end
+
+  factory :mission_3 , class: Mission do
+    input_main { "input_main３" }
+    input_reading { "input_reading３" }
+    input_library { "input_library３" }
+    input_alias { "input_alias３" }
+    input_related { "input_related３" }
+    input_sample { "input_sample３" }
+    input_description { "input_description３" }
+    input_reference_site { "input_reference_site３" }
+    input_remarks { "input_remarks３" }
+    user_id { 1 }
   end
 end
