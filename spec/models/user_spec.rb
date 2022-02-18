@@ -29,9 +29,10 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   let(:user_a) { create(:user_admin) }
   let(:user_b) { create(:user_general) }
+
   describe 'ユーザーモデル機能', type: :model do
     describe 'バリデーションのテスト' do
-      context 'タスクのタイトルと詳細に内容が記載されている場合' do
+      context 'userのnameとemailに内容が記載されている場合' do
         it 'バリデーションが通る' do
           expect(user_a).to be_valid
         end

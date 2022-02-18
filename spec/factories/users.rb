@@ -26,6 +26,7 @@
 #
 FactoryBot.define do
   factory :user_admin, class: User do
+    id {1}
     user_name { 'admin@test.com' }
     email {'admin@test.com'}
     password { 'admin@test.com' }
@@ -35,6 +36,7 @@ end
 
 FactoryBot.define do
   factory :user_general, class: User do
+    id {2}
     user_name { 'general@test.com' }
     email {'general@test.com'}
     password { 'general@test.com' }

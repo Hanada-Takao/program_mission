@@ -11,11 +11,21 @@
 #  user_id    :bigint           not null
 #
 FactoryBot.define do
-  factory :blog do
-    user_id { "" }
-    blog_id { "" }
-    title { "MyString" }
-    content { "MyText" }
-    image { "MyString" }
+  factory :blog_1 , class: Blog do
+    title { 'Factoryで作ったデフォルトのtitle１' }
+    content { 'Factoryで作ったデフォルトのcontent１' }
+    user_id { 1 }
+  end
+
+  factory :blog_2 , class: Blog do
+    title { 'Factoryで作ったデフォルトのtitle２' }
+    content { 'Factoryで作ったデフォルトのcontent２' }
+    user_id { 1 }
+  end
+
+  factory :blog_3 , class: Blog do
+    title { 'Factoryで作ったデフォルトのtitle３' }
+    content { 'Factoryで作ったデフォルトのcontent３' }
+    user_id { 1 }
   end
 end
