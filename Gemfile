@@ -15,7 +15,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rubocop', require: false
 gem 'rubocop-rails'
 gem 'rubocop-checkstyle_formatter'
-gem 'jquery-rails'
 gem 'mini_magick', '~> 4.8'
 gem 'seed-fu', '~> 2.3'
 gem 'devise'
@@ -26,6 +25,7 @@ gem 'mini_racer'
 gem 'bootstrap'
 gem 'rails_admin', ['>= 3.0.0.rc', '< 4']
 gem 'cancancan'
+gem 'faker'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -2,14 +2,14 @@
   <%= link_to '以前のメッセージ', '?m=all' %>
 <% end %>
 
-<div class="ui segment">
+<div class="ui_segment">
   <% @messages.each do |message| %>
     <% if message.body.present? %>
-      <div class="item">
+      <div class="item_1">
         <div class="content">
           <div class="header"><strong><%= message.user.user_name %></strong> <%= message.message_time %></div>
           <div class="list">
-            <div class="item">
+            <div class="item_2">
               <i class="right triangle icon"></i>
               <%= message.body %> /
               <% if message.user == current_user %>
