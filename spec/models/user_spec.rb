@@ -27,5 +27,69 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:user_a) { create(:user_admin) }
+  let(:user_b) { create(:user_general) }
+  describe 'ユーザーモデル機能', type: :model do
+    describe 'バリデーションのテスト' do
+      context 'タスクのタイトルと詳細に内容が記載されている場合' do
+        it 'バリデーションが通る' do
+          expect(user_a).to be_valid
+        end
+      end
+
+      context 'userのnameが空の場合' do
+        it 'バリデーションにひっかる' do
+          user_a.user_name = ' '
+          expect(user_a).to be_invalid
+        end
+      end
+
+      context 'userのemailが空の場合' do
+        it 'バリデーションにひっかる' do
+          user_a.email = ' '
+          expect(user_a).to be_invalid
+        end
+      end
+
+      context 'userのnameが30文字以上の場合' do
+        it 'バリデーションにひっかる' do
+          user_a.user_name = 'a' * 31
+          expect(user_a).to be_invalid
+        end
+      end
+
+      context 'userのemailが255文字以上の場合' do
+        it 'バリデーションにひっかる' do
+          user_a.email = 'a' * 245 + '@sample.com'
+          expect(user_a).to be_invalid
+        end
+      end
+
+      context 'メールフォーマットの検証' do
+        it 'バリデーションにひっかる' do
+          invalid_addresses = %w(userexample,com user_at_foo.org user.nameexample.
+                                foobar_baz.com foobar+baz.com)
+          invalid_addresses.each do |invalid_address|
+            user_a.email = invalid_address
+            expect(user_a).to be_invalid
+          end
+        end
+      end
+
+      context '重複するメールアドレスの拒否' do
+        it "バリデーションにひっかる" do
+          duplicate_user = user_a.dup
+          user_a.save
+          expect(duplicate_user).to be_invalid
+        end
+      end
+
+      context 'passwordが5文字以下の場合' do
+        it "バリデーションにひっかる" do
+          user_a.password = 'a' * 5
+          expect(user_a).to be_invalid
+        end
+      end
+    end
+  end
 end

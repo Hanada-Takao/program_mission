@@ -19,8 +19,8 @@ class User < ApplicationRecord
 
   has_one_attached :image
 
-  validates :user_name, presence: true
-  validates :email, presence: true
+  validates :user_name, presence: true, length: { maximum: 30 }
+  validates :email, presence: true, length: { maximum: 255 }
 
   def already_favorited?(blog)
     self.favorites.exists?(blog_id: blog.id)
