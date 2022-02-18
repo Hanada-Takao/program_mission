@@ -87,20 +87,24 @@ RSpec.configure do |config|
   end
   module LoginSupport
     def admin_login
-      visit new_session_path
-      fill_in 'session_email', with: 'admin@test.com'
-      fill_in 'session_password', with: 'admin@test.com'
-      click_on 'session_btn'
+      visit new_user_session_path
+      fill_in 'user[user_name]', with: 'admin@test.com'
+      fill_in 'user[email]', with: 'admin@test.com'
+      fill_in 'user[password]', with: 'admin@test.com'
+      click_button 'ログイン'
     end
 
     def general_login
-      visit new_session_path
-      fill_in 'session_email', with: 'general@test.com'
-      fill_in 'session_password', with: 'general@test.com'
-      click_on 'ログインする'
+      visit new_user_session_path
+      fill_in 'user[user_name]', with: 'general@test.com'
+      fill_in 'user[email]', with: 'general@test.com'
+      fill_in 'user[password]', with: 'general@test.com'
+      click_button 'ログイン'
     end
   end
 
   # FactoryBotの省略
   config.include FactoryBot::Syntax::Methods
+  config.include LoginSupport
+  config.include Devise::Test::IntegrationHelpers, type: :request
 end

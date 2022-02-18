@@ -26,7 +26,7 @@
 #
 FactoryBot.define do
   factory :user_admin, class: User do
-    user_name { 'Factoryで作ったUserAdmin' }
+    user_name { 'admin@test.com' }
     email {'admin@test.com'}
     password { 'admin@test.com' }
     admin { 'true' }
@@ -35,7 +35,7 @@ end
 
 FactoryBot.define do
   factory :user_general, class: User do
-    user_name { 'Factoryで作ったUserGeneral' }
+    user_name { 'general@test.com' }
     email {'general@test.com'}
     password { 'general@test.com' }
     admin { 'false' }

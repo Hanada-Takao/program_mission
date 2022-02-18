@@ -8,7 +8,11 @@
 #  updated_at :datetime         not null
 #
 FactoryBot.define do
-  factory :tag do
-    tag_name { "MyString" }
+  factory :tag_1, class: Tag do
+    tag_name { 'Factoryで作ったデフォルトのtag１' }
+  end
+
+  factory :tag_2, class: Tag do
+    tag_name { 'Factoryで作ったデフォルトのtag２' }
   end
 end
