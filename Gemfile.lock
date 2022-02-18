@@ -149,6 +149,8 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
+    launchy (2.5.0)
+      addressable (~> 2.7)
     libv8-node (16.10.0.0-x86_64-darwin)
     libv8-node (16.10.0.0-x86_64-linux)
     listen (3.7.1)
@@ -326,6 +328,8 @@ GEM
     shoulda-matchers (5.1.0)
       activesupport (>= 5.2.0)
     spring (2.1.1)
+    spring-commands-rspec (1.0.4)
+      spring (>= 0.9.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
       spring (>= 1.2, < 3.0)
@@ -396,6 +400,7 @@ DEPENDENCIES
   faker
   jbuilder (~> 2.7)
   kaminari
+  launchy
   listen (~> 3.2)
   mini_magick (~> 4.8)
   mini_racer
@@ -421,6 +426,7 @@ DEPENDENCIES
   selenium-webdriver
   shoulda-matchers
   spring
+  spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
   timecop
   turbolinks (~> 5)
