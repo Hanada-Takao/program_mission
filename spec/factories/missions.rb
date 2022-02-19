@@ -35,7 +35,7 @@ FactoryBot.define do
     input_description { "input_description１" }
     input_reference_site { "input_reference_site１" }
     input_remarks { "input_remarks１" }
-    user_id { 1 }
+    user_id { 2 }
   end
 
   factory :mission_2 , class: Mission do
@@ -48,7 +48,7 @@ FactoryBot.define do
     input_description { "input_description２" }
     input_reference_site { "input_reference_site２" }
     input_remarks { "input_remarks２" }
-    user_id { 1 }
+    user_id { 2 }
   end
 
   factory :mission_3 , class: Mission do
@@ -61,6 +61,6 @@ FactoryBot.define do
     input_description { "input_description３" }
     input_reference_site { "input_reference_site３" }
     input_remarks { "input_remarks３" }
-    user_id { 1 }
+    user_id { 2 }
   end
 end

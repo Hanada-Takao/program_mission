@@ -60,6 +60,7 @@ group :test do
   gem 'rspec-parameterized'
   gem 'rspec-retry'
   gem 'timecop'
+  gem 'database_rewinder'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

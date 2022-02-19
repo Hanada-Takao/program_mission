@@ -2,7 +2,7 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :blog
 
-  validates :comment_name, presence: true, length: { maximum: 10 }
+  validates :comment_name, presence: true, length: { maximum: 30 }
   validates :comment, presence: true, length: { maximum: 1000 }
 end
 

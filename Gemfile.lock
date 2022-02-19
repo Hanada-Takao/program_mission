@@ -110,6 +110,7 @@ GEM
       activerecord (>= 5.a)
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
+    database_rewinder (0.9.8)
     debug_inspector (1.1.0)
     devise (4.8.1)
       bcrypt (~> 3.0)
@@ -394,6 +395,7 @@ DEPENDENCIES
   cancancan
   capybara (>= 2.15)
   database_cleaner
+  database_rewinder
   devise
   devise-i18n
   factory_bot_rails
