@@ -19,8 +19,14 @@
 #  fk_rails_...  (user_id => users.id)
 #
 FactoryBot.define do
-  factory :favorite do
-    user_id { nil }
-    blog_id { nil }
+  factory :favorite_1, class: Favorite do
+    user_id { 2 }
+    blog_id { 1 }
   end
+
+  factory :favorite_2, class: Favorite do
+    user_id { 3 }
+    blog_id { 1 }
+  end
+
 end
