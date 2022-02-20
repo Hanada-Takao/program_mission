@@ -26,7 +26,7 @@ RSpec.describe Blog, type: :model do
 
   describe 'ブログモデル機能', type: :model do
     describe 'バリデーションのテスト' do
-      context 'タスクのタイトルと詳細に内容が記載されている場合' do
+      context 'ブログのタイトルと詳細に内容が記載されている場合' do
         it 'バリデーションが通る' do
           expect(blog_a).to be_valid
         end
@@ -38,7 +38,7 @@ RSpec.describe Blog, type: :model do
           end
         end
 
-        context 'タスクの詳細が空の場合' do
+        context 'blogのcontentが空の場合' do
           it 'バリデーションにひっかかる' do
             blog_a.content = ' '
             expect(blog_a).not_to be_valid

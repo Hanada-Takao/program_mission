@@ -21,10 +21,17 @@
 #  fk_rails_...  (user_id => users.id)
 #
 FactoryBot.define do
-  factory :comment do
-    user_id { "" }
-    blog_id { "" }
-    comment_name { "MyString" }
-    comment { "MyText" }
+  factory :comment_1, class: Comment do
+    user_id { "2" }
+    blog_id { "1" }
+    comment_name { "test_comment_name_1" }
+    comment { "test_comment_text_1" }
+  end
+
+  factory :comment_2, class: Comment do
+    user_id { "3" }
+    blog_id { "1" }
+    comment_name { "test_comment_name_2" }
+    comment { "test_comment_text_2" }
   end
 end
