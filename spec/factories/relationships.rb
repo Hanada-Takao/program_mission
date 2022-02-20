@@ -14,7 +14,7 @@ FactoryBot.define do
     follower_id { 3 }
   end
   factory :relationship_2, class: Relationship do
-    following_id { 2 }
-    follower_id { 3 }
+    following_id { 3 }
+    follower_id { 4 }
   end
 end

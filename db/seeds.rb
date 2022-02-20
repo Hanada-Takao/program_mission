@@ -60,7 +60,7 @@ end
 
 Mission.all.ids.sort.each do |mission_id|
   Tag.all.ids.sort.each do |tag_id|
-    MissionTagsRelation.create(mission_id: mission_id, tag_id: tag_id)
+    MissionTagsRelation.create!(mission_id: mission_id, tag_id: tag_id)
   end
 end
 
@@ -73,7 +73,7 @@ end
   )
 end
 10.times do |n|
-Conversation.create(
+Conversation.create!(
   recipient_id: "#{n + 1}",
   sender_id: "#{2 + 1}"
 )
@@ -89,13 +89,13 @@ end
 
 User.all.ids.sort.each do |user_id|
   Blog.all.ids.sort.each do |blog_id|
-    Favorite.create(user_id: user_id, blog_id: blog_id)
+    Favorite.create!(user_id: user_id, blog_id: blog_id)
   end
 end
 
 User.all.ids.sort.each do |following_id|
   User.all.ids.sort.each do |follower_id|
-    Relationship.create(following_id: following_id, follower_id: follower_id)
+    Relationship.create!(following_id: following_id, follower_id: follower_id)
   end
 end
 

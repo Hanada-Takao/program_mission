@@ -43,3 +43,13 @@ FactoryBot.define do
     admin { 'false' }
   end
 end
+
+FactoryBot.define do
+  factory :user_ordinary, class: User do
+    id {4}
+    user_name { 'ordinary@test.com' }
+    email {'ordinary@test.com'}
+    password { 'ordinary@test.com' }
+    admin { 'false' }
+  end
+end
