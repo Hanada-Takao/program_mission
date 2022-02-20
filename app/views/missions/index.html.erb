@@ -14,7 +14,7 @@
         <%= f.collection_check_boxes :tags_id_in, @tags, :id, :tag_name, :include_blank => '指定なし', class: "form-check-input", id: "check1" %>
       </div>
       <button type="button" class="btn btn-primary">
-        <%= f.submit '検索' %>
+        <%= f.submit '検索', id: "institution_search_submit" %>
         <i class="fas fa-search"></i>
       </button>
         <%= sort_link(@q, :updated_at, "更新順" ) %>

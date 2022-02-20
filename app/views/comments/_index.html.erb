@@ -23,7 +23,7 @@
 
           <% if comment.user == current_user %>
             <%= button_to blog_comment_path(comment.blog_id, comment.id), method: :delete, remote: true, class: "comment_destroy" do %>
-                <i class="fas fa-trash" style="color: black;"></i>
+                <a class = "trash_box" title="comment_trash "><i class="fas fa-trash" style="color: black;"></i></a>
             <% end %>
           <% end %>
           <span class="comment-date pull-right">

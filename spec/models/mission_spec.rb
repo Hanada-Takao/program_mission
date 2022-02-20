@@ -27,5 +27,86 @@
 require 'rails_helper'
 
 RSpec.describe Mission, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let!(:user_a) { create(:user_admin) }
+  let!(:mission_a) { create(:mission_1) }
+
+  describe 'missionモデル機能', type: :model do
+    describe 'バリデーションのテスト' do
+      context 'missionのinput_mainに内容が記載されている場合' do
+        it 'バリデーションが通る' do
+          expect(mission_a).to be_valid
+        end
+
+        context 'missionのinput_mainが空の場合' do
+          it 'バリデーションにひっかる' do
+            mission_a.input_main = ' '
+            expect(mission_a).not_to be_valid
+          end
+        end
+
+        context 'missionのtitleが30文字以上の場合' do
+          it 'バリデーションにひっかる' do
+            mission_a.input_main = 'a' * 31
+            expect(mission_a).to be_invalid
+          end
+        end
+
+        context 'missionのinput_aliasが255文字以上の場合' do
+          it 'バリデーションにひっかる' do
+            mission_a.input_alias = 'a' * 256
+            expect(mission_a).to be_invalid
+          end
+        end
+
+        context 'missionのinput_descriptionが255文字以上の場合' do
+          it 'バリデーションにひっかる' do
+            mission_a.input_description = 'a' * 256
+            expect(mission_a).to be_invalid
+          end
+        end
+
+        context 'missionのinput_libraryが255文字以上の場合' do
+          it 'バリデーションにひっかる' do
+            mission_a.input_library = 'a' * 256
+            expect(mission_a).to be_invalid
+          end
+        end
+
+        context 'missionのinput_readingが255文字以上の場合' do
+          it 'バリデーションにひっかる' do
+            mission_a.input_reading = 'a' * 256
+            expect(mission_a).to be_invalid
+          end
+        end
+
+        context 'missionのinput_reference_siteが255文字以上の場合' do
+          it 'バリデーションにひっかる' do
+            mission_a.input_reference_site = 'a' * 256
+            expect(mission_a).to be_invalid
+          end
+        end
+
+        context 'missionのinput_relatedが255文字以上の場合' do
+          it 'バリデーションにひっかる' do
+            mission_a.input_related = 'a' * 256
+            expect(mission_a).to be_invalid
+          end
+        end
+
+        context 'missionのinput_remarksが255文字以上の場合' do
+          it 'バリデーションにひっかる' do
+            mission_a.input_remarks = 'a' * 256
+            expect(mission_a).to be_invalid
+          end
+        end
+
+        context 'missionのinput_sampleが255文字以上の場合' do
+          it 'バリデーションにひっかる' do
+            mission_a.input_sample = 'a' * 256
+            expect(mission_a).to be_invalid
+          end
+        end
+      end
+    end
+  end
 end

@@ -21,10 +21,15 @@
 #  fk_rails_...  (user_id => users.id)
 #
 FactoryBot.define do
-  factory :message do
-    body { "MyText" }
-    conversation { nil }
-    user { nil }
-    read { false }
+  factory :message_1, class: Message do
+    body { "test_message_1" }
+    conversation_id { 1 }
+    user_id { 2 }
+  end
+
+  factory :message_2, class: Message do
+    body { "test_message_2" }
+    conversation_id { 2 }
+    user_id { 3 }
   end
 end

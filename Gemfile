@@ -22,7 +22,6 @@ gem 'devise-i18n'
 gem 'ransack'
 gem 'rails-i18n'
 gem 'mini_racer'
-gem 'bootstrap'
 gem 'rails_admin', ['>= 3.0.0.rc', '< 4']
 gem 'cancancan'
 gem 'faker'
@@ -37,6 +36,8 @@ group :development, :test do
   gem 'rexml'
   gem 'rails-controller-testing'
   gem 'shoulda-matchers'
+  gem 'spring-commands-rspec'
+  gem 'launchy'
 end
 
 group :development do
@@ -58,6 +59,7 @@ group :test do
   gem 'rspec-parameterized'
   gem 'rspec-retry'
   gem 'timecop'
+  gem 'database_rewinder'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
