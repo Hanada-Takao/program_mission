@@ -19,4 +19,5 @@ require("channels")
 //= require rails-ujs
 //= require app
 
+import 'bootstrap';
 import '../stylesheets/application';
