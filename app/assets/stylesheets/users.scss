@@ -11,8 +11,9 @@ img {
     align-items: center;
     justify-content: center;
   .user-image{
-      width: 30%;
+      width: 50%;
       text-align: center;
+      margin-top: 20px;
       }
     }
   .edit-profile-btn {
@@ -24,7 +25,6 @@ img {
     border-color: #dbdbdb;
     font-size: 14px;
   }
-
   .setting {
     // background-image: url("../images/parts4.png");
     background-repeat: no-repeat;
@@ -37,5 +37,8 @@ img {
     &:hover {
       cursor: pointer;
     }
+  }
+  .button_to {
+    margin-bottom: 20px;
   }
 }
