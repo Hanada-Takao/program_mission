@@ -1,38 +1,47 @@
 <div class="grid-container">
   <div class="grid-item">
+    <h6>メイン</h6>
     <h4><%= @mission.input_main %></h4>
   </div>
 
   <div class="grid-item">
+    <h6>読み方</h6>
     <p class="card-text"><%= simple_format(@mission.input_reading ) %></p>
   </div>
 
   <div class="grid-item">
-    <p class="card-text"><%= simple_format(@mission.input_reading ) %></p>
+    <h6>ライブラリー</h6>
+    <p class="card-text"><%= simple_format(@mission.input_library ) %></p>
   </div>
 
   <div class="grid-item">
-    <p class="card-text"><%= simple_format(@mission.input_reading ) %></p>
+    <h6>同義語</h6>
+    <p class="card-text"><%= simple_format(@mission.input_alias ) %></p>
   </div>
 
   <div class="grid-item">
-    <p class="card-text"><%= simple_format(@mission.input_reading ) %></p>
+    <h6>関連語</h6>
+    <p class="card-text"><%= simple_format(@mission.input_related ) %></p>
   </div>
 
   <div class="grid-item">
-    <p class="card-text"><%= simple_format(@mission.input_reading ) %></p>
+    <h6>例文</h6>
+    <p class="card-text"><%= simple_format(@mission.input_sample ) %></p>
   </div>
 
   <div class="grid-item">
-    <p class="card-text"><%= simple_format(@mission.input_reading ) %></p>
+    <h6>説明文</h6>
+    <p class="card-text"><%= simple_format(@mission.input_description ) %></p>
   </div>
 
   <div class="grid-item">
-    <p class="card-text"><%= simple_format(@mission.input_reading ) %></p>
+      <h6>リファレンスサイトURL</h6>
+    <p class="card-text"><%= simple_format(@mission.input_reference_site ) %></p>
   </div>
 
   <div class="grid-item">
-    <p class="card-text"><%= simple_format(@mission.input_reading ) %></p>
+    <h6>その他</h6>
+    <p class="card-text"><%= simple_format(@mission.input_remarks ) %></p>
   </div>
 </div>
 

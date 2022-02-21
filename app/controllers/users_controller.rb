@@ -2,11 +2,12 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @users = User.where.not(id: current_user.id)
+    @users = User.where.not(id: current_user.id).page(params[:page]).reverse_order
   end
 
   def show
     @user = User.find(params[:id])
+    @blogs = @user.blogs.page(params[:page]).reverse_order
   end
 
   def edit
@@ -24,12 +25,12 @@ class UsersController < ApplicationController
 
   def followings
     user = User.find(params[:id])
-    @users = user.followings
+    @users = user.followings.page(params[:page]).reverse_order
   end
 
   def followers
     user = User.find(params[:id])
-    @users = user.followers
+    @users = user.followers.page(params[:page]).reverse_order
   end
 
   private

@@ -4,8 +4,9 @@
       <table class="table text-center">
         <thead>
           <tr>
-            <th>Name</th>
-            <th></th>
+            <th>ユーザーネーム</th>
+            <th>メッセージルーム</th>
+            <th>フォロー & アンフォロー</th>
           </tr>
         </thead>
         <tbody>
@@ -18,7 +19,6 @@
               </td>
               <td>
                 <%= button_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %>
-
               </td>
               <td>
                 <% if user != current_user %>
@@ -36,3 +36,4 @@
     </div>
   </div>
 </div>
+<%= paginate @users %>
