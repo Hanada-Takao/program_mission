@@ -10,9 +10,6 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.3.0",
-    "bootstrap": "5.0.2",
-    "jquery": "3.6.0",
-    "popper.js": "^2.0.0-next.4",
     "rails-ujs": "^5.2.6",
     "rails_admin": "3.0.0-rc",
     "turbolinks": "^5.2.0"
