@@ -15,6 +15,8 @@
       <p class="text-small"><%= link_to @user.followings.count, followings_user_path(@user) %> フォロー <%= link_to @user.followers.count, followers_user_path(@user) %> フォロワー</p>
       <% if @user == current_user %>
         <p class="lead text-muted">You're currently signed in as <%= current_user.email %></p>
+        <%= link_to "プロフィールを編集", edit_user_path, class: "btn btn-outline-dark common-btn edit-profile-btn" %>
+        <button type="button" class="setting" data-toggle="modal" data-target="#exampleModal"></button>
       <% else %>
         <% if @user.is_followed_by?(current_user) %>
           <%=button_to 'フォロー解除', user_relationships_path(@user) , class: "btn btn-sm btn-danger",   method: :delete %>
@@ -37,7 +39,7 @@
     </thead>
     <tbody>
       <% @user.blogs.each do |blog| %>
-        <tr>
+        <tr class="one-post">
           <td><%= link_to blog.title, blog_path(blog) %></td>
           <td><%= blog.content %></td>
           <td><%= "#{blog.favorites.count}" %><i class="fas fa-heart"></i></td>
@@ -48,4 +50,3 @@
   </table>
   <%= paginate @blogs %>
 </div>
-<%= link_to "ユーザー編集", edit_user_path %>
