@@ -17,7 +17,6 @@ require("channels")
 //= require popper
 //= require bootstrap-sprockets
 //= require rails-ujs
-//= require app
 
 import 'bootstrap';
 import '../stylesheets/application';
