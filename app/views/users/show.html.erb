@@ -31,22 +31,18 @@
   <table class="table table-hover">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">ブログタイトル</th>
-        <th scope="col">ブログコンテンツ</th>
-        <th scope="col">いいね！数</th>
-        <th scope="col">コメント数</th>
+        <th scope="col">タイトル</th>
+        <th scope="col">コンテンツ</th>
       </tr>
     </thead>
     <tbody>
       <% @user.blogs.each do |blog| %>
         <tr class="one-post">
+
           <td><%= link_to blog.title, blog_path(blog) %></td>
           <td><%= blog.content %></td>
-          <td><%= "#{blog.favorites.count}" %><i class="fas fa-heart"></i></td>
-          <td><%= "#{blog.comments.count}" %><i class="fa-solid fa-comment"></i></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-  <%= paginate @blogs %>
 </div>
