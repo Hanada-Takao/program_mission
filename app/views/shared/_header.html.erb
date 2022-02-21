@@ -1,58 +1,69 @@
-
-<div id="header">
+<div class="header_container">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <%= link_to 'program mission', root_path, class: "navbar-brand" %>
-    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-      <% if user_signed_in? %>
-        <div class="collapse navbar-collapse" id="Navber">
-          <ul class="navbar-nav mr-auto">
+    <div class="container-fluid">
+      <%= link_to 'program mission', root_path, class: "navbar-brand" %>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">オフキャンバス</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to 'マイページ', user_path(current_user.id), class: "nav-link" %>
+              <%= link_to 'マイページ', user_path(current_user.id), class: "nav-link active" %>
             </li>
             <li class="nav-item">
-              <%= link_to 'ユーザー一覧', users_path, class: "nav-link" %>
+              <%= link_to 'ユーザー一覧', users_path, class: "nav-link active" %>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                ブログ
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                <li><%= link_to 'ブログ投稿', new_blog_path, class: "dropdown-item" %></li>
+                <li><%= link_to 'ブログ一覧', blogs_path, class: "dropdown-item" %></li>
+              </ul>
+            </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Mission
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                <li><%= link_to 'ミッション投稿', new_mission_path, class: "dropdown-item" %></li>
+                <li><%= link_to 'ミッション一覧', missions_path, class: "dropdown-item" %></li>
+              </ul>
             </li>
             <li class="nav-item">
-                <%= link_to 'ブログ投稿', new_blog_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-                <%= link_to 'ブログ一覧', blogs_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-                <%= link_to 'ミッション投稿', new_mission_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-                <%= link_to 'ミッション一覧', missions_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "ログアウト", destroy_user_session_path, class: "nav-link" %>
+              <%= link_to "ログアウト", destroy_user_session_path, class: "nav-link active" %>
             </li>
             <% if current_user.admin? %>
+            <li class="nav-item">
+                <%= link_to "管理者画面", rails_admin_path, class: "nav-link active" %>
+              </li>
+            <% end %>
+            <% else %>
               <li class="nav-item">
-                <%= link_to "管理者画面", rails_admin_path, class: "nav-link" %>
+                <%= link_to 'ログイン', new_user_session_path, class: "nav-link active" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to '新規登録', new_user_registration_path, class: "nav-link active" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "ゲストログイン（管理者・閲覧用）", home_guest_admin_sign_in_path, method: :post, class: "nav-link active" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "ゲストログイン（閲覧用）", home_guest_sign_in_path, method: :post, class: "nav-link active" %>
               </li>
             <% end %>
           </ul>
         </div>
-      <% else %>
-        <div class="collapse navbar-collapse" id="Navber">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <%= link_to 'ログイン', new_user_session_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to '新規登録', new_user_registration_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "ゲストログイン（管理者・閲覧用）", home_guest_admin_sign_in_path, method: :post, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "ゲストログイン（閲覧用）", home_guest_sign_in_path, method: :post, class: "nav-link" %>
-            </li>
-          </ul>
-        </div>
-      <% end %>
+      </div>
+    </div>
   </nav>
 </div>
+
+
