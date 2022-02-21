@@ -25,6 +25,8 @@ gem 'mini_racer'
 gem 'rails_admin', ['>= 3.0.0.rc', '< 4']
 gem 'cancancan'
 gem 'faker'
+gem 'bootstrap'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -18,4 +18,5 @@ require("channels")
 //= require bootstrap-sprockets
 //= require rails-ujs
 
+import 'bootstrap';
 import '../stylesheets/application';
