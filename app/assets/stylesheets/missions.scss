@@ -9,72 +9,74 @@
     grid-template-rows: 100px 100px 100px;
     }
     .grid-item {
-    background: rgb(178, 253, 175);
+    background: #c9ff64;
+    color: rgb(134, 0, 0);
     padding: 15px;
     border-radius: 8px;
     }
-    // .grid-container {
-    //   grid-template-rows: repeat(5, 20%);
-    //   -ms-grid-rows: repeat(5, 20%);
-    //   grid-template-columns: repeat(4, 25%);
-    //   -ms-grid-colums: repeat(4, 25%);
-    //   grid-auto-flow: dense;
-    //   -ms-grid-auto-flow: dense;
-    // }
-    // .grid-item:first-child {
-    //   grid-row: span 2;
-    //   -ms-grid-row: span 2;
-    //   grid-column: span 2;
-    //   -ms-grid-column: span 2;
-    // }
-    // .grid-item:nth-child(2) {
-    //   grid-row: span 1;
-    //   -ms-grid-row: span 1;
-    //   grid-column: span 1;
-    //   -ms-grid-column: span 1;
-    // }
-    // .grid-item:nth-child(3) {
-    //   grid-row: span 4;
-    //   -ms-grid-row: span 4;
-    //   grid-column: span 1;
-    //   -ms-grid-column: span 1;
-    // }
-    // .grid-item:nth-child(4) {
-    //   grid-row: span 2;
-    //   -ms-grid-row: span 2;
-    //   grid-column: span 1;
-    //   -ms-grid-column: span 1;
-    // }
-    // .grid-item:nth-child(5) {
-    //   grid-row: span 2;
-    //   -ms-grid-row: span 2;
-    //   grid-column: span 1;
-    //   -ms-grid-column: span 1;
-    // }
-    // .grid-item:nth-child(6) {
-    //   grid-row: span 1;
-    //   -ms-grid-row: span 1;
-    //   grid-column: span 1;
-    //   -ms-grid-column: span 1;
-    // }
-    // .grid-item:nth-child(7) {
-    //   grid-row: span 1;
-    //   -ms-grid-row: span 1;
-    //   grid-column: span 1;
-    //   -ms-grid-column: span 1;
-    // }
-    // .grid-item:nth-child(8) {
-    //   grid-row: span 1;
-    //   -ms-grid-row: span 1;
-    //   grid-column: span 4;
-    //   -ms-grid-column: span 4;
-    // }
-    // .grid-item:nth-child(9) {
-    //   grid-row: span 1;
-    //   -ms-grid-row: span 1;
-    //   grid-column: span 1;
-    //   -ms-grid-column: span 1;
-    // }
+    .grid-container {
+      grid-template-rows: repeat(5, 20%);
+      -ms-grid-rows: repeat(5, 20%);
+      grid-template-columns: repeat(4, 25%);
+      -ms-grid-colums: repeat(4, 25%);
+      grid-auto-flow: dense;
+      -ms-grid-auto-flow: dense;
+    }
+    .grid-item:first-child {
+      grid-row: span 2;
+      -ms-grid-row: span 2;
+      grid-column: span 2;
+      -ms-grid-column: span 2;
+    }
+    .grid-item:nth-child(2) {
+      grid-row: span 1;
+      -ms-grid-row: span 1;
+      grid-column: span 1;
+      -ms-grid-column: span 1;
+    }
+    .grid-item:nth-child(3) {
+      grid-row: span 4;
+      -ms-grid-row: span 4;
+      grid-column: span 1;
+      -ms-grid-column: span 1;
+    }
+    .grid-item:nth-child(4) {
+      grid-row: span 2;
+      -ms-grid-row: span 2;
+      grid-column: span 1;
+      -ms-grid-column: span 1;
+    }
+    .grid-item:nth-child(5) {
+      grid-row: span 2;
+      -ms-grid-row: span 2;
+      grid-column: span 1;
+      -ms-grid-column: span 1;
+    }
+    .grid-item:nth-child(6) {
+      grid-row: span 1;
+      -ms-grid-row: span 1;
+      grid-column: span 1;
+      -ms-grid-column: span 1;
+    }
+    .grid-item:nth-child(7) {
+      grid-row: span 1;
+      -ms-grid-row: span 1;
+      grid-column: span 1;
+      -ms-grid-column: span 1;
+    }
+    .grid-item:nth-child(8) {
+      grid-row: span 1;
+      -ms-grid-row: span 1;
+      grid-column: span 4;
+      -ms-grid-column: span 4;
+      margin-bottom: 30px;
+    }
+    .grid-item:nth-child(9) {
+      grid-row: span 1;
+      -ms-grid-row: span 1;
+      grid-column: span 1;
+      -ms-grid-column: span 1;
+    }
 }
 
 #missions-index {
