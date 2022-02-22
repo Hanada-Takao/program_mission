@@ -3,11 +3,11 @@
 <%= form_with model: @blog, local: true  do |f| %>
   <div class="form-group">
     <%= f.label :title, ' タイトル' %><br />
-    <%= f.text_field :title, autofocus: true, autocomplete: "title", class: 'form-control' %>
+    <%= f.text_field :title, autofocus: true, autocomplete: "title", placeholder: "ブログのタイトルを記入してください", class: 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.label :content, ' 本文' %>
-    <%= f.text_area :content, autofocus: true, autocomplete: "content", class: 'form-control', rows: 10 %>
+    <%= f.text_area :content, autofocus: true, autocomplete: "content", placeholder: "ブログの本文を記入してください", class: 'form-control', rows: 10 %>
   </div>
   <div class="form-group">
     <%= f.label :images, ' 画像投稿' %>
