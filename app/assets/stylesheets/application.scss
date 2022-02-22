@@ -160,3 +160,15 @@ img {
     font-size: 1.125rem;
     margin: 10px 0 42px;
 }
+
+.field_with_errors {
+    display: contents;
+    // もしくは diplay: inline;
+}
+
+.alert-danger {
+  display: contents;
+  input {
+    @extend .is-invalid;
+  }
+}

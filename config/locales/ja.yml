@@ -8,6 +8,10 @@ ja:
       comment:
         comment_name: コメントタイトル
         comment: コメント
+      mission:
+        input_main: メソッド名
+      message:
+        body: メッセージ
   views:
     pagination:
       first: 最初
