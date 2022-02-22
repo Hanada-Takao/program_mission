@@ -1,7 +1,4 @@
 <div class="d-flex align-items-center">
   <h1>ブログ編集</h1>
-  <div class="ml-auto blogs__linkBox">
-    <%= link_to '一覧', blogs_path, class: 'btn btn-outline-dark' %>
-  </div>
 </div>
 <%= render partial: 'form', locals: { blog: @blog } %>

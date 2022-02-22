@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 #users-show {
@@ -11,9 +11,9 @@ img {
     align-items: center;
     justify-content: center;
   .user-image{
-      width: 50%;
+      width: 70%;
       text-align: center;
-      margin-top: 20px;
+      margin-top: 50px;
       }
     }
   .edit-profile-btn {
@@ -25,6 +25,7 @@ img {
     border-color: #dbdbdb;
     font-size: 14px;
   }
+
   .setting {
     // background-image: url("../images/parts4.png");
     background-repeat: no-repeat;
@@ -38,7 +39,14 @@ img {
       cursor: pointer;
     }
   }
-  .button_to {
+  .button_to{
+    margin-bottom: 50px;
+  }
+}
+
+#users-edit {
+  #user_image{
+    margin-top: 30px;
     margin-bottom: 20px;
   }
 }
