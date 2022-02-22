@@ -8,13 +8,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 100px 100px 100px;
     }
-    .grid-item {
-    background: #c9ff64;
-    color: rgb(134, 0, 0);
-    padding: 15px;
-    border-radius: 8px;
-    }
-    .grid-container {
+        .grid-container {
       grid-template-rows: repeat(5, 20%);
       -ms-grid-rows: repeat(5, 20%);
       grid-template-columns: repeat(4, 25%);
@@ -22,6 +16,14 @@
       grid-auto-flow: dense;
       -ms-grid-auto-flow: dense;
     }
+    .grid-item {
+    background: #c9ff64;
+    color: rgb(134, 0, 0);
+    padding: 15px;
+    border-radius: 8px;
+    overflow: scroll;
+    }
+
     .grid-item:first-child {
       grid-row: span 2;
       -ms-grid-row: span 2;
@@ -77,6 +79,9 @@
       grid-column: span 1;
       -ms-grid-column: span 1;
     }
+  .card{
+    margin-top: 25px;
+  }
 }
 
 #missions-index {
