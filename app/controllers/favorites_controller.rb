@@ -7,7 +7,10 @@ class FavoritesController < ApplicationController
     if favorite.save
       redirect_to blogs_path
     else
-      redirect_to blogs_path, danger: 'お気に入り登録に失敗しました'
+      redirect_to blogs_path, flash: {
+        favorite: favorite,
+        error_messages: favorite.errors.full_messages
+      }
     end
     # @favorite = current_user.favorites.create(blog_id: params[:blog_id])
     # redirect_back(fallback_location: root_path)

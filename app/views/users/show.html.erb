@@ -20,7 +20,7 @@
       <% else %>
       <div class="follow_button">
         <% if @user.is_followed_by?(current_user) %>
-          <%=button_to 'フォロー解除', user_relationships_path(@user) , class: "btn btn-sm btn-danger",   method: :delete %>
+          <%=button_to 'フォロー解除', user_relationships_path(@user), data: {confirm: "フォロー解除しますか？"},  class: "btn btn-sm btn-danger",   method: :delete %>
         <% else %>
           <%=button_to 'フォロー', user_relationships_path(@user) , class: "btn btn-sm btn-info",   method: :post %>
         <% end %>

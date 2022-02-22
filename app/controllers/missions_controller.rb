@@ -40,9 +40,9 @@ class MissionsController < ApplicationController
     if @mission.update(mission_params)
       redirect_to mission_path(@mission), notice: '更新に成功しました'
     else
-      redirect_to edit_mission_path, flash: {
+      redirect_to edit_mission_path(@mission), flash: {
         mission: @mission,
-        error_messages: @mission.error.full_messages
+        error_messages: @mission.errors.full_messages
       }
     end
   end

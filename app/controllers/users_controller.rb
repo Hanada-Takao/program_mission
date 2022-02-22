@@ -19,7 +19,10 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path, notice: "ユーザー情報を更新しました。"
     else
-      render :edit
+      redirect_to edit_user_path, flash: {
+        user: @user,
+        error_messages: @user.errors.full_messages
+      }
     end
   end
 
@@ -35,6 +38,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :image)
+    params.require(:user).permit(:user_name, :email, :image)
   end
 end
