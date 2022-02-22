@@ -5,6 +5,7 @@ class FavoritesController < ApplicationController
     favorite.blog_id = params[:blog_id]
 
     if favorite.save
+      favorite.blog_id.create_notification_favorite!(current_user)
       redirect_to blogs_path
     else
       redirect_to blogs_path, danger: 'お気に入り登録に失敗しました'

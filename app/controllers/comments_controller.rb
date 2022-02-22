@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     respond_to do |format|
       if @comment.save
+        @comment.create_notification_comment!(current_user, @comment.id)
         format.html { redirect_to blog_path(@blog), notice: "「#{@comment.comment_name}のコメントをしました」" }
         format.js { render :index }
       else
