@@ -15,11 +15,11 @@
           <% end %>
         </div>
         <div class="comment-entry">
-          <%= comment.comment_name %><br>
-          <%= comment.comment %>
+          コメントタイトル：<%= comment.comment_name %><br>
+          コメントコンテンツ：<%= comment.comment %>
         </div>
         <div class="p-comment__bottomLine">
-          <p><%= link_to "#{comment.user.user_name}", user_path(comment.user.id) %></p>
+          <p>投稿者：<%= link_to "#{comment.user.user_name}", user_path(comment.user.id) %></p>
 
           <% if comment.user == current_user %>
             <%= button_to blog_comment_path(comment.blog_id, comment.id), method: :delete, remote: true, class: "comment_destroy" do %>
