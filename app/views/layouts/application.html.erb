@@ -12,11 +12,13 @@
   </head>
 
   <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
-    <div id="home" class="big-bg">
-      <%= render 'shared/header' %>
-      <%= render 'shared/error_messages' %>
-      <%= yield %>
-      <%= render 'shared/footer' %>
+    <div class="footerFixed">
+      <div id="home" class="big-bg">
+        <%= render 'shared/header' %>
+        <%= render 'shared/error_messages' %>
+        <%= yield %>
+        <%= render 'shared/footer' %>
+      </div>
     </div>
   </body>
 </html>
