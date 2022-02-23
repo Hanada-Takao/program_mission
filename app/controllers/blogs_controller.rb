@@ -26,11 +26,14 @@ class BlogsController < ApplicationController
   end
 
   def show
-    @comment = Comment.new(blog_id: @blog.id)
-    @favorite = current_user.favorites.find_by(blog_id: @blog.id)
+    @blog = Blog.find(params[:id])
+    @comment = Comment.new
     @comments = @blog.comments.order(created_at: :desc)
-    # @comment = @blog.comments.new
-    # @comment = Comment.new
+    # @comment = Comment.new(blog_id: @blog.id)
+    # @favorite = current_user.favorites.find_by(blog_id: @blog.id)
+    # @comments = @blog.comments.order(created_at: :desc)
+    # # @comment = @blog.comments.new
+    # # @comment = Comment.new
   end
 
   def edit
