@@ -32,18 +32,8 @@
         <th><%= blog.content %></th>
       </div>
       <div class="action-manu">
-        <div class="like">
-          <% if current_user.already_favorited?(blog) %>
-            <%= button_to blog_favorites_path(blog), method: :delete do %>
-              <i class="fas fa-heart"></i>
-            <% end %>
-            <%= blog.favorites.count %>
-          <% else %>
-            <%= button_to blog_favorites_path(blog), method: :post do %>
-              <i class="far fa-heart"></i>
-            <% end %>
-            <%= blog.favorites.count %>
-          <% end %>
+        <div id="index_favorite_<%= blog.id %>">
+            <%= render 'favorites/favorite', blog: blog %>
         </div>
         <div class="comment">
           <i class="fa-solid fa-comment"></i>

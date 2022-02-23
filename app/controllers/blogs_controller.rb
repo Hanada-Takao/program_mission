@@ -4,7 +4,7 @@ class BlogsController < ApplicationController
 
   def index
     #フォローしているユーザーと自分の投稿
-    @blogs = Blog.where(user_id: [current_user.id, *current_user.following_ids]).page(params[:page])
+    @blogs = Blog.where(user_id: [current_user.id, *current_user.following_ids]).order(created_at: :desc).page(params[:page])
     # @blog = Blog.new
   end
 

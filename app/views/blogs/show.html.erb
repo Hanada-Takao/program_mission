@@ -20,17 +20,9 @@
           <p class="card-text">
             <small class="text-muted">更新日：<%= @blog.updated_at.strftime("%Y-%m-%d") %></small>
           </p>
-          <% if current_user.already_favorited?(@blog) %>
-            <%= button_to blog_favorites_path(@blog), method: :delete do %>
-              <i class="fas fa-heart"></i>
-            <% end %>
-            <%= @blog.favorites.count %>
-          <% else %>
-            <%= button_to blog_favorites_path(@blog), method: :post do %>
-              <i class="far fa-heart"></i>
-            <% end %>
-            <%= @blog.favorites.count %>
-          <% end %>
+          <div id="show_favorite_<%= @blog.id %>">
+              <%= render 'favorites/favorite', blog: @blog %>
+          </div>
           <% if @blog.user == current_user %>
             <%= link_to '編集', edit_blog_path(@blog), class: "btn btn-success" %>
             <%= button_to '削除', blog_path(@blog), method: :delete, class: "btn btn-danger" %>
