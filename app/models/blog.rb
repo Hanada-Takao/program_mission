@@ -1,12 +1,14 @@
+
+
 class Blog < ApplicationRecord
   validates :title, presence: true, length: { maximum: 30 }
   validates :content, presence: true, length: { maximum: 1000 }
 
   belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favorites, source: 'user'
-  has_many_attached :images
+  has_many_attached :images, dependent: :destroy
   has_many :notifications, dependent: :destroy
 
 
@@ -43,7 +45,10 @@ class Blog < ApplicationRecord
     end
     notification.save if notification.valid?
   end
+
 end
+
+
 
 # == Schema Information
 #
@@ -53,7 +58,7 @@ end
 #  content    :text             not null
 #  image      :string
 #  title      :string           not null
-#  created_at :datetimeç
+#  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  user_id    :bigint           not null
 #

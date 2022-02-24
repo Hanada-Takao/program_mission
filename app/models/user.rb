@@ -7,24 +7,28 @@ class User < ApplicationRecord
   has_many :blogs, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :blogs, through: :favorites
+  has_many :blogs, through: :favorites, dependent: :destroy
 
   has_many :active_relationships, foreign_key: 'follower_id', class_name: 'Relationship', dependent: :destroy
   has_many :passive_relationships, foreign_key: 'following_id', class_name: 'Relationship', dependent: :destroy
-  has_many :following, through: :active_relationships, source: :following
-  has_many :followers, through: :passive_relationships, source: :follower
+  has_many :following, through: :active_relationships, source: :following, dependent: :destroy
+  has_many :followers, through: :passive_relationships, source: :follower, dependent: :destroy
 
   has_many :missions, dependent: :destroy
 
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
-  has_one_attached :image
+  has_one_attached :image, dependent: :destroy
 
   validates :user_name, presence: true, length: { maximum: 30 }
   validates :email, presence: true, length: { maximum: 255 }
 
   def already_favorited?(blog)
+    self.favorites.exists?(blog_id: blog.id)
+  end
+
+  def is_followed_by?(user)
     passive_relationships.find_by(following_id: user.id).present?
   end
 

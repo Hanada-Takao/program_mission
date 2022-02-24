@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @@blogs = @user.blogs.page(params[:page]).order("created_at DESC")
+    @blogs = @user.blogs.page(params[:page]).order("created_at DESC")
   end
 
   def edit
@@ -19,10 +19,10 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path, notice: "ユーザー情報を更新しました。"
     else
-      redirect_to edit_user_path, flash: {
-        user: @user,
-        error_messages: @user.errors.full_messages
-      }
+    redirect_to edit_user_path, flash: {
+      user: @user,
+      error_messages: @user.errors.full_messages
+    }
     end
   end
 

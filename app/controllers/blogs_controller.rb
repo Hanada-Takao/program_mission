@@ -5,6 +5,7 @@ class BlogsController < ApplicationController
   def index
     #フォローしているユーザーと自分の投稿
     @blogs = Blog.where(user_id: [current_user.id, *current_user.following_ids]).order(created_at: :desc).page(params[:page])
+    # @blog = Blog.new
   end
 
   def new
@@ -28,6 +29,11 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])
     @comment = Comment.new
     @comments = @blog.comments.order(created_at: :desc)
+    # @comment = Comment.new(blog_id: @blog.id)
+    # @favorite = current_user.favorites.find_by(blog_id: @blog.id)
+    # @comments = @blog.comments.order(created_at: :desc)
+    # # @comment = @blog.comments.new
+    # # @comment = Comment.new
   end
 
   def edit

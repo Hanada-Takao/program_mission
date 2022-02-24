@@ -1,3 +1,5 @@
+
+
 class MissionsController < ApplicationController
   # before_action :set_q, only: %i[index search]
 
@@ -17,10 +19,10 @@ class MissionsController < ApplicationController
     if @mission.save
       redirect_to missions_path, flash: { notice: "「#{@mission.input_main}のミッションを作成しました」"}
     else
-      redirect_to new_mission_path, flash: {
-        mission: @mission,
-        error_messages: @mission.errors.full_messages
-      }
+      redirect_to edit_mission_path(@mission), flash: {
+      mission: @mission,
+      error_messages: @mission.errors.full_messages
+    }
     end
   end
 
@@ -40,9 +42,9 @@ class MissionsController < ApplicationController
     if @mission.update(mission_params)
       redirect_to mission_path(@mission), notice: '更新に成功しました'
     else
-      redirect_to edit_mission_path(@mission), flash: {
+      redirect_to edit_mission_path, flash: {
         mission: @mission,
-        error_messages: @mission.errors.full_messages
+        error_messages: @mission.error.full_messages
       }
     end
   end

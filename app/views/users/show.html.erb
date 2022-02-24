@@ -40,7 +40,6 @@
     <tbody>
       <% @user.blogs.each do |blog| %>
         <tr class="one-post">
-
           <td><%= link_to blog.title, blog_path(blog) %></td>
           <td><%= blog.content %></td>
           <td><%= "#{blog.favorites.count}" %><i class="fas fa-heart"></i></td>
