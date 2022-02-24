@@ -29,7 +29,10 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to conversation_messages_path(@conversation)
     else
-      render 'index'
+      redirect_to conversation_messages_path(@conversation), flash: {
+        message: @message,
+        error_messages: @message.errors.full_messages
+      }
     end
   end
 

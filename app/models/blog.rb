@@ -3,10 +3,10 @@ class Blog < ApplicationRecord
   validates :content, presence: true, length: { maximum: 1000 }
 
   belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favorites, source: 'user'
-  has_many_attached :images
+  has_many_attached :images, dependent: :destroy
   has_many :notifications, dependent: :destroy
 
 

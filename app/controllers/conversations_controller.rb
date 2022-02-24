@@ -11,7 +11,10 @@ class ConversationsController < ApplicationController
     else
       @conversation = Conversation.create!(conversation_params)
     end
-    redirect_to conversation_messages_path(@conversation)
+      redirect_to conversation_messages_path(@conversation), flash: {
+        conversation: @conversation,
+        error_messages: @conversation.errors.full_messages
+      }
   end
 
   private

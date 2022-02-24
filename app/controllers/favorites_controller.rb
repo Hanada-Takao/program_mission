@@ -2,12 +2,18 @@ class FavoritesController < ApplicationController
   before_action :blog_params
 
   def create
-    favorite = current_user.favorites.new(blog_id: @blog.id)
-    favorite.save
-    @blog = Blog.find(params[:blog_id])
-    @blog.create_notification_by(current_user)
-    redirect_back(fallback_location: root_path)
-
+    if
+      favorite = current_user.favorites.new(blog_id: @blog.id)
+      favorite.save
+      @blog = Blog.find(params[:blog_id])
+      @blog.create_notification_by(current_user)
+      redirect_back(fallback_location: root_path)
+    else
+      redirect_to blogs_path, flash: {
+        favorite: favorite,
+        error_messages: favorite.errors.full_messages
+      }
+    end
   end
 
   def index

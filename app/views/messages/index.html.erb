@@ -24,8 +24,9 @@
 </div>
 
 <%= form_with(model: [@conversation, @message]) do |f| %>
-  <div class="field">
-    <%= f.text_area :body, placeholder: "新しいメッセージを記入してください", class: "form-control" %>
+  <div class="form-group">
+    <%= f.label :body, 'メッセージ' %>
+    <%= f.text_area :body, autofocus: true, autocomplete: "body", placeholder: "新しいメッセージを記入してください", class: "form-control" %>
   </div>
     <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
   <div>

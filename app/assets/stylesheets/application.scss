@@ -160,3 +160,10 @@ img {
     font-size: 1.125rem;
     margin: 10px 0 42px;
 }
+
+.alert-danger {
+    display: contents;
+    input {
+    @extend .is-invalid;
+    }
+    }

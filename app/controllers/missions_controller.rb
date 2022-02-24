@@ -17,10 +17,10 @@ class MissionsController < ApplicationController
     if @mission.save
       redirect_to missions_path, flash: { notice: "「#{@mission.input_main}のミッションを作成しました」"}
     else
-      redirect_to new_mission_path, flash: {
-        mission: @mission,
-        error_messages: @mission.errors.full_messages
-      }
+      redirect_to edit_mission_path(@mission), flash: {
+      mission: @mission,
+      error_messages: @mission.errors.full_messages
+    }
     end
   end
 

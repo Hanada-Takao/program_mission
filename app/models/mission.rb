@@ -2,7 +2,7 @@ class Mission < ApplicationRecord
   belongs_to :user
 
   has_many :mission_tags_relations, dependent: :destroy
-  has_many :tags, through: :mission_tags_relations
+  has_many :tags, through: :mission_tags_relations, dependent: :destroy
 
   validates :input_main, presence: true, length: { maximum: 30 }
   validates :input_alias, length: { maximum: 255 }
