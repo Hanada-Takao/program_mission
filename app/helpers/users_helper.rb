@@ -1,3 +1,5 @@
+
+
 module UsersHelper
   # 渡されたユーザーでログインする
   def log_in(user)

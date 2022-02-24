@@ -1,3 +1,5 @@
+
+
 class MissionsController < ApplicationController
   # before_action :set_q, only: %i[index search]
 
