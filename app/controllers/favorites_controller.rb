@@ -4,18 +4,10 @@ class FavoritesController < ApplicationController
   def create
     favorite = current_user.favorites.new(blog_id: @blog.id)
     favorite.save
+    @blog = Blog.find(params[:blog_id])
+    @blog.create_notification_by(current_user)
     redirect_back(fallback_location: root_path)
-  # def create
-  #   favorite = Favorite.new
-  #   favorite.user_id = current_user.id
-  #   favorite.blog_id = params[:blog_id]
 
-  #   if favorite.save
-  #     favorite.blog_id.create_notification_favorite!(current_user)
-  #     redirect_to blogs_path
-  #   else
-  #     redirect_to blogs_path, danger: 'お気に入り登録に失敗しました'
-  #   end
   end
 
   def index

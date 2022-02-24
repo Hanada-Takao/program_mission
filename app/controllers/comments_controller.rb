@@ -4,8 +4,9 @@ class CommentsController < ApplicationController
     #投稿に紐づいたコメントを作成
     @comment = @blog.comments.build(comment_params)
     @comment.user_id = current_user.id
+    @comment_blog = @comment.blog
     if @comment.save
-      # @comment.create_notification_comment!(current_user, @comment.id)
+      @comment_blog.create_notification_comment!(current_user, @comment.id)
       redirect_to blog_path(@blog), notice: "「#{@comment.comment_name}のコメントをしました」"
     else
       redirect_to blog_path(@blog), notice: '投稿できませんでした...'
