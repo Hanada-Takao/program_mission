@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @blogs = @user.blogs.page(params[:page]).reverse_order
+    @@blogs = @user.blogs.page(params[:page]).order("created_at DESC")
   end
 
   def edit
@@ -26,9 +26,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def followings
+  def following
     user = User.find(params[:id])
-    @users = user.followings.page(params[:page]).reverse_order
+    @users = user.following.page(params[:page]).reverse_order
   end
 
   def followers
