@@ -6,10 +6,11 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users do
-    resource :relationships, only: %i[create destroy]
-    get :followings, on: :member
-    get :followers, on: :member
+    member do
+      get :following, :followers
+    end
   end
+  resources :relationships, only: %i[create destroy]
 
   resources :blogs do
     resources :comments, only: %i[create destroy]

@@ -9,11 +9,10 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :blogs, through: :favorites
 
-  has_many :relationships, foreign_key: :following_id
-  has_many :followings, through: :relationships, source: :follower
-
-  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: :follower_id
-  has_many :followers, through: :reverse_of_relationships, source: :following
+  has_many :active_relationships, foreign_key: 'follower_id', class_name: 'Relationship', dependent: :destroy
+  has_many :passive_relationships, foreign_key: 'following_id', class_name: 'Relationship', dependent: :destroy
+  has_many :following, through: :active_relationships, source: :following
+  has_many :followers, through: :passive_relationships, source: :follower
 
   has_many :missions, dependent: :destroy
 
@@ -30,8 +29,23 @@ class User < ApplicationRecord
   end
 
   def is_followed_by?(user)
-    reverse_of_relationships.find_by(following_id: user.id).present?
+    passive_relationships.find_by(following_id: user.id).present?
   end
+
+  #指定のユーザをフォローする
+  def follow!(other_user)
+    active_relationships.create!(following_id: other_user.id)
+  end
+
+  #フォローしているかどうかを確認する
+  def following?(other_user)
+    active_relationships.find_by(following_id: other_user.id)
+  end
+
+  #指定のユーザのフォローを解除する
+def unfollow!(other_user)
+  active_relationships.find_by(following_id: other_user.id).destroy
+end
 
   def create_notification_follow!(current_user)
     temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ", current_user.id, id, 'follow'])

@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 2022_02_22_073233) do
 
   create_table "blogs", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "title"
-    t.text "content"
+    t.string "title", null: false
+    t.text "content", null: false
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2022_02_22_073233) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.text "body"
+    t.text "body", null: false
     t.bigint "conversation_id", null: false
     t.bigint "user_id", null: false
     t.boolean "read", default: false
@@ -123,10 +123,13 @@ ActiveRecord::Schema.define(version: 2022_02_22_073233) do
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.bigint "following_id", null: false
-    t.bigint "follower_id", null: false
+    t.integer "follower_id"
+    t.integer "following_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["follower_id", "following_id"], name: "index_relationships_on_follower_id_and_following_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
+    t.index ["following_id"], name: "index_relationships_on_following_id"
   end
 
   create_table "tags", force: :cascade do |t|

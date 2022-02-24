@@ -20,16 +20,9 @@
               </td>
               <td>
                 <%= button_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %>
-
               </td>
               <td>
-                <% if user != current_user %>
-                  <% if user.is_followed_by?(current_user) %>
-                    <%=button_to 'フォロー解除', user_relationships_path(user) , class: "btn btn-sm btn-danger",   method: :delete %>
-                  <% else %>
-                    <%=button_to 'フォロー', user_relationships_path(user) , class: "btn btn-sm btn-info",   method: :post %>
-                  <% end %>
-                <% end %>
+                <%= render 'follow_form', user: user %>
               </td>
             </tr>
           <% end %>

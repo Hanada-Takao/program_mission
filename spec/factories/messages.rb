@@ -3,7 +3,7 @@
 # Table name: messages
 #
 #  id              :bigint           not null, primary key
-#  body            :text
+#  body            :text             not null
 #  read            :boolean          default(FALSE)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
