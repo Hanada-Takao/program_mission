@@ -62,13 +62,6 @@
           <%= button_to '削除', mission_path(@mission), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger" %>
         <% end %>
       </div>
-
-
-      <div class="card">
-        <% if flash[:notice] %>
-          <div class = "alert alert-primary"><%= flash[:notice] %></div>
-        <% end %>
-      </div>
     </div>
   </div>
 </div>

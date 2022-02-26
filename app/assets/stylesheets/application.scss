@@ -11,159 +11,157 @@
  * It is generally better to create a new file per style scope.
  *
  */
- @import "bootstrap";
- @import "base";
- @import "blogs";
- @import "missions";
- @import "users";
- @import "messages";
+@import "bootstrap";
+@import "base";
+@import "blogs";
+@import "missions";
+@import "users";
+@import "messages";
 
- // #header{
- //     display: flex;
- //     align-items: center;
- //     justify-content: space-between;
- // }
+// #header{
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+// }
 
- // #header #nav {
- //   list-style: none;
- //   display: flex;
- // }
+// #header #nav {
+//   list-style: none;
+//   display: flex;
+// }
 
- // #header #nav li {
- //   width: 140px;
- //   text-align: center;
- //   background-color: #333;
- //   height: 50px;
- //   line-height: 50px;
- //   margin-right: 2px;
- // }
+// #header #nav li {
+//   width: 140px;
+//   text-align: center;
+//   background-color: #333;
+//   height: 50px;
+//   line-height: 50px;
+//   margin-right: 2px;
+// }
 
- // #header #nav li a {
- //   text-decoration: none;
- //   color: #fff;
- //   font-weight: bold;
- //   padding: 20px;
- // }
+// #header #nav li a {
+//   text-decoration: none;
+//   color: #fff;
+//   font-weight: bold;
+//   padding: 20px;
+// }
 
- .footerFixed{
-   min-height: 100vh;
-   position: relative;/*←相対位置*/
-   padding-bottom: 120px;/*←footerの高さ*/
-   box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
- }
+.footer {
+    background-color: #fff;
+    text-align: center;
+    padding: 26px 0;
+    margin-top: 20px;
+}
+.footer p {
+    color: #333;
+    font-size: 0.875rem;
+}
 
- #footer {
-   width: 100%;
-   text-align: center;
-   padding: 30px 0;
+.header_container{
+    margin-bottom: 30px;
+}
+.nav-item{
+background:linear-gradient(transparent 70%, #FFFF00 0%);
+margin-left: 20px;
+}
 
-   position: absolute;/*←絶対位置*/
-   bottom: 0; /*下に固定*/
-   background-color: #fff;
-   color: #333;
-   p{
-     padding-top: 20px;
-   }
- }
+/* 共通部分
+------------------------------- */
+html {
+    font-size: 100%;
+}
+body{
+    font-family: "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", sans-serif;
+    line-height: 1.7;
+    color: #432;
+}
+a {
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+}
+.wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
 
- /* 共通部分
- ------------------------------- */
- html {
-     font-size: 100%;
- }
- body{
-     font-family: "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", sans-serif;
-     line-height: 1.7;
-     color: #432;
- }
- a {
-     text-decoration: none;
- }
- img {
-     max-width: 100%;
- }
- .wrapper {
-     max-width: 1100px;
-     margin: 0 auto;
-     padding: 0 4%;
- }
+/* 大きな背景画像 */
+.big-bg {
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
 
- /* 大きな背景画像 */
- .big-bg {
-     background-size: cover;
-     background-position: center top;
-     background-repeat: no-repeat;
- }
+/* 見出し */
+.page-title {
+    font-size: 5rem;
+    font-family: 'Philosopher', serif;
+    text-transform: uppercase;
+    font-weight: normal;
+}
 
- /* 見出し */
- .page-title {
-     font-size: 5rem;
-     font-family: 'Philosopher', serif;
-     text-transform: uppercase;
-     font-weight: normal;
- }
+/* ボタン */
+.button {
+    font-size: 1.375rem;
+    background: #0bd;
+    color: #fff;
+    border-radius: 5px;
+    padding: 18px 32px;
+}
+.button:hover {
+    background: #0090aa;
+}
 
- /* ボタン */
- .button {
-     font-size: 1.375rem;
-     background: #0bd;
-     color: #fff;
-     border-radius: 5px;
-     padding: 18px 32px;
- }
- .button:hover {
-     background: #0090aa;
- }
+/* HEADER
+------------------------------- */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+}
+.logo {
+    width: 210px;
+    margin-top: 14px;
+}
+.main-nav {
+    display: flex;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    margin-top: 34px;
+    list-style: none;
+}
+.main-nav li {
+    margin-left: 36px;
+}
+.main-nav a {
+    color: #432;
+}
+.main-nav a:hover {
+    color: #0bd;
+}
 
- /* HEADER
- ------------------------------- */
- .page-header {
-     display: flex;
-     justify-content: space-between;
- }
- .logo {
-     width: 210px;
-     margin-top: 14px;
- }
- .main-nav {
-     display: flex;
-     font-size: 1.25rem;
-     text-transform: uppercase;
-     margin-top: 34px;
-     list-style: none;
- }
- .main-nav li {
-     margin-left: 36px;
- }
- .main-nav a {
-     color: #432;
- }
- .main-nav a:hover {
-     color: #0bd;
- }
+/* HOME
+------------------------------- */
+#home {
+    background-image: linear-gradient(hsl(212, 100%, 83%), #fcca89);
+    background-blend-mode: luminosity;
+    min-height: 100vh;
+}
+#home .page-title {
+    text-transform: none;
+}
+.home-content {
+    text-align: center;
+    margin-top: 10%;
+}
+.home-content p {
+    font-size: 1.125rem;
+    margin: 10px 0 42px;
+}
 
- /* HOME
- ------------------------------- */
- #home {
-     background-image: linear-gradient(hsl(212, 100%, 83%), #fcca89);
-     background-blend-mode: luminosity;
-     min-height: 100vh;
- }
- #home .page-title {
-     text-transform: none;
- }
- .home-content {
-     text-align: center;
-     margin-top: 10%;
- }
- .home-content p {
-     font-size: 1.125rem;
-     margin: 10px 0 42px;
- }
-
- .alert-danger {
-     display: contents;
-     input {
-     @extend .is-invalid;
-     }
-     }
+.alert-danger {
+    display: contents;
+    input {
+    @extend .is-invalid;
+    }
+    }
