@@ -2,8 +2,6 @@
     <%= link_to '以前のメッセージ', '?m=all' %>
   <% end %>
 
-<h3><% @messages.user.user_name %>とのチャットルーム</h3>
-
   <% @messages.each do |m| %>
     <div class="kaiwa line">
       <% if m.user_id == current_user.id %>

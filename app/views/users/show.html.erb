@@ -1,32 +1,38 @@
-<section class="py-5 text-center container">
-  <div class="card" style="max-widh: 25rem;" >
-    <div class="card-img-top">
-      <% if @user.image.attached? %>
-        <div class="user-image">
-          <%= image_tag @user.image %>
-        </div>
-      <% else %>
-        <svg width="80" height="80" class="svg-icon" viewBox="0 0 20 20">
-          <path d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z"></path>
-        </svg>
-      <% end %>
-    </div>
-      <h1 class="fw-light"><%= @user.user_name %></h1>
-      <p class="text-small"><%= link_to @user.following.count, following_user_path(@user) %> フォロー <%= link_to @user.followers.count, followers_user_path(@user) %> フォロワー</p>
-      <% if @user == current_user %>
-        <p class="lead text-muted">You're currently signed in as <%= current_user.email %></p>
-        <%= link_to "プロフィールを編集", edit_user_path, class: "btn btn-outline-dark common-btn edit-profile-btn" %>
-        <button type="button" class="setting" data-toggle="modal" data-target="#exampleModal"></button>
-      <% else %>
-        <div class="mypage-intro-topright">
-          <div class="mypage-follow-contents-<%= @user.id %>">
-                <%= render 'follow_form', user: @user %>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-header">
+            <h4><%= @user.user_name %></h4>
+          </div>
+          <p class="card-image">
+            <% if @user.image.attached? %>
+              <div class="user-image">
+                <%= image_tag @user.image %>
+              </div>
+            <% else %>
+              <svg width="80" height="80" class="svg-icon" viewBox="0 0 20 20">
+                <path d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z"></path>
+              </svg>
+            <% end %>
+            <p class="card-text"><%= link_to @user.following.count, following_user_path(@user) %> フォロー <%= link_to @user.followers.count, followers_user_path(@user) %> フォロワー</p>
+            <% if @user == current_user %>
+              <p class="card-text">You're currently signed in as <%= current_user.email %></p>
+                <%= link_to "プロフィールを編集", edit_user_path, class: "btn btn-outline-dark common-btn edit-profile-btn" %>
+                <button type="button" class="setting" data-toggle="modal" data-target="#exampleModal"></button>
+              <% else %>
+              <div class="mypage-intro-topright">
+                <div class="mypage-follow-contents-<%= @user.id %>">
+                  <%= render 'follow_form', user: @user %>
+                </div>
+              </div>
+            <% end %>
           </div>
         </div>
-      <% end %>
+      </div>
     </div>
   </div>
-</section>
 <div class="col-9 mx-auto mt-5">
   <table class="table table-hover">
     <thead class="thead-dark">

@@ -64,6 +64,12 @@ background:linear-gradient(transparent 70%, #FFFF00 0%);
 margin-left: 20px;
 }
 
+.fa-circle {
+    content: "\f111";
+    position: absolute;
+    color: #efa04c;
+}
+
 /* 共通部分
 ------------------------------- */
 html {
@@ -111,6 +117,38 @@ img {
 }
 .button:hover {
     background: #0090aa;
+}
+.submit_button {
+    display: inline-block;
+    padding: 0.3em 1em;
+    text-decoration: none;
+    color: #67c5ff;
+    border: solid 2px #333;
+    border-radius: 3px;
+    transition: .4s;
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+.submit_button:hover {
+    background: #67c5ff;
+    color: white;
+}
+
+.deleate_button {
+    display: inline-block;
+    padding: 0.3em 1em;
+    text-decoration: none;
+    color: hsl(0, 100%, 70%);
+    border: solid 2px #333;
+    border-radius: 3px;
+    transition: .4s;
+    font-size: 13px;
+}
+
+.deleate_button:hover {
+    background: hsl(0, 100%, 70%);
+    color: white;
 }
 
 /* HEADER

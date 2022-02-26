@@ -47,7 +47,7 @@
           <div class="user-profile">
             <div class="user-name">
               <th> 投稿者 ：</th>
-              <th><%= mission.user.user_name %></th>
+              <th><%= link_to mission.user.user_name, user_path(mission.user.id) %></th>
             </div>
           </div>
         </div>
