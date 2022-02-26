@@ -116,8 +116,9 @@ img {
     .card-body {margin-bottom: 10px;
       border: 5px solid #333;
       .comment-avatar {
+        width: 20%;
         .user-image {
-          width: 15%;
+          width: 80%;
           margin-right: 10PX;
         }
       }

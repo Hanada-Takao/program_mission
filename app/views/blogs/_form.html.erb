@@ -14,8 +14,11 @@
           <%= f.label :images, ' 画像投稿' %>
           <%= f.file_field :images, multiple: true %><br>
         </div>
-        <div class="submit-block">
-          <%= f.submit '保存', class: 'button' %>
+          <div class = "submit_button">
+            <%= f.button :type => "submit", style: 'background: none;' 'border-style: none;' do %>
+              <i class="fa-solid fa-database fa-2x "></i>保存
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>

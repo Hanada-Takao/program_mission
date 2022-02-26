@@ -11,12 +11,14 @@
     <script src="https://kit.fontawesome.com/5966e38669.js" crossorigin="anonymous"></script>
   </head>
 
-  <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
+  <body >
     <div class="footerFixed">
       <div id="home" class="big-bg">
         <%= render 'shared/header' %>
         <%= render 'shared/error_messages' %>
+          <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
         <%= yield %>
+          </body>
         <%= render 'shared/footer' %>
       </div>
     </div>

@@ -1,13 +1,13 @@
 <% if user_signed_in? %>
   <% if current_user.already_favorited?(blog) %>
     <%= link_to blog_favorites_path(blog), method: :delete, remote: true do %>
-      <i class="fa fa-heart" aria-hidden="true" style="color: red;">
+      <i class="fa fa-heart" aria-hidden="true" style="color: red;">いいね！
         <%= blog.favorites.count %>
       </i>
     <% end %>
   <% else %>
     <%= link_to blog_favorites_path(blog), method: :post, remote: true do %>
-      <i class="fa fa-heart" aria-hidden="true" style="color: #C0C0C0;">
+      <i class="fa fa-heart" aria-hidden="true" style="color: #333;">
         <%= blog.favorites.count %>
       </i>
     <% end %>
