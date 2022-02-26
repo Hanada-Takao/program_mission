@@ -9,22 +9,22 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/5966e38669.js" crossorigin="anonymous"></script>
-    <link rel="shortcut icon" href="_common/images/favicon.ico">
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500" rel="stylesheet">
     <link href="_common/css/style.css" rel="stylesheet">
     <link href="css/special.css" rel="stylesheet">
   </head>
 
-  <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
+  <body >
     <div class="footerFixed">
       <div id="home" class="big-bg">
         <%= render 'shared/header' %>
         <%= render 'shared/error_messages' %>
+          <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
         <%= yield %>
+          </body>
         <%= render 'shared/footer' %>
       </div>
     </div>
-    <script src="_common/scripts/jquery-3.4.1.min.js"></script>
-    <script src="script.js"></script>
   </body>
 </html>

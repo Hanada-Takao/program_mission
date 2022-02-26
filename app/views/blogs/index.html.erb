@@ -20,25 +20,20 @@
         <div class="user-profile">
           <div class="user-name">
             <th> 投稿者 ：</th>
-            <th><%= link_to blog.user.user_name, user_path(blog) %></th>
+            <th><%= link_to blog.user.user_name, user_path(blog.user.id) %></th>
           </div>
         </div>
       </div>
-
       <tr class="blog-title">
-        <th> タイトル   ：</th>
+        <th> タイトル：</th>
         <th><%= link_to blog.title, blog_path(blog) %></th>
       </tr>
-      <div class="blog-content">
-        <th> コンテンツ ：</th>
-        <th><%= blog.content %></th>
-      </div>
       <div class="action-manu">
         <div id="index_favorite_<%= blog.id %>">
-            <%= render 'favorites/favorite', blog: blog %>
+          <%= render 'favorites/favorite', blog: blog %>
         </div>
         <div class="comment">
-          <i class="fa-solid fa-comment"></i>
+          <i class="fa-solid fa-comment"></i>コメント
           <%= blog.comments.count %>
         </div>
         <p class="card-text">

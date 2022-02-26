@@ -31,7 +31,7 @@ function ajaxRequest(lat, long) {
             lang: 'ja'
         }
     })
-    .done(function(data) {
+    .done(function(data){
         // 都市名、国名
         $('#place').text(data.city.name + ', ' + data.city.country);
 

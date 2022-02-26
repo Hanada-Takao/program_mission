@@ -2,36 +2,35 @@
   <div class="header_container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <%= link_to 'program mission', root_path, class: "navbar-brand" %>
+        <%= link_to 'Program Mission', root_path, class: "navbar-brand" %>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
           <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">オフキャンバス</h5>
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">ユーザーメニュー</h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <% if user_signed_in? %>
               <li class="nav-item">
-                <%= link_to 'マイページ', user_path(current_user.id), class: "nav-link active" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to 'ユーザー一覧', users_path, data: {"turbolinks" => false}, class: "nav-link active" %>
+                <%= link_to users_path, data: {"turbolinks" => false}, class: "nav-link active" do %>
+                  <i class="fa-solid fa-user-group"></i>
+                <% end %>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  ブログ
+                  <i class="fa-solid fa-blog"></i>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
                   <li><%= link_to 'ブログ投稿', new_blog_path,data: {"turbolinks" => false}, class: "dropdown-item" %></li>
                   <li><%= link_to 'ブログ一覧', blogs_path, data: {"turbolinks" => false}, class: "dropdown-item" %></li>
                 </ul>
               </li>
-                <li class="nav-item dropdown">
+              <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Mission
+                  <i class="fa-solid fa-chalkboard-user"></i>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
                   <li><%= link_to 'ミッション投稿', new_mission_path, class: "dropdown-item" %></li>
@@ -39,24 +38,39 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <%= link_to "ログアウト", destroy_user_session_path, class: "nav-link active" %>
+                <%= link_to notifications_path, class: "nav-link active" do %>
+                  <% if unchecked_notifications.any? %>
+                    <span class = fa-stack>
+                      <i class = "fa-solid fa-bell" style = "font-size: 1.5em;"></i>
+                      <i class = "fa fa-circle"></i>
+                    </span>
+                  <% else %>
+                    <span>
+                    <i class="fa-regular fa-bell" style = "font-size: 1.5em;"></i>
+                    </span>
+                  <% end %>
+                <% end %>
               </li>
-
-              <% if unchecked_notifications.any? %>
-                  <i class="fa fa-circle" style="color: gold;"></i>
-              <% end %>
-              <li>
-                  <%= link_to "NOTICE", notifications_path, class: "btn-default" %>
+              <li class="nav-item">
+                <%= link_to destroy_user_session_path, class: "nav-link active" do %>
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <% end %>
               </li>
-
               <% if current_user.admin? %>
               <li class="nav-item">
-                  <%= link_to "管理者画面", rails_admin_path, class: "nav-link active" %>
+                  <%= link_to rails_admin_path, class: "nav-link active" do %>
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                  <% end %>
                 </li>
               <% end %>
+              <li class="nav-item">
+                <%= link_to "「#{current_user.user_name}」がログインしてます", user_path(current_user.id), class: "nav-link active" %>
+              </li>
               <% else %>
                 <li class="nav-item">
-                  <%= link_to 'ログイン', new_user_session_path, class: "nav-link active" %>
+                  <%= link_to new_user_session_path, class: "nav-link active" do %>
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                  <% end %>
                 </li>
                 <li class="nav-item">
                   <%= link_to '新規登録', new_user_registration_path, class: "nav-link active" %>

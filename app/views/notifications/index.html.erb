@@ -1,7 +1,7 @@
 <div>
   <h4 class="sub-title">通知</h4>
   <% if @notifications.exists? %>
-    <div class="users-index">
+    <div class = "users-index">
       <%= render @notifications %>
       <%= paginate @notifications %>
     </div>

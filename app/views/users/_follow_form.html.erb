@@ -2,11 +2,19 @@
   <% unless current_user.following?(user) %>
     <%= form_with(model: current_user.active_relationships.build(following_id: user.id)) do |f| %>
       <%= f.hidden_field :following_id %>
-      <%= f.submit "フォロー", data: {"turbolinks" => false}  %>
+          <div class = "submit_button">
+      <%= f.button :type => "submit", data: {"turbolinks" => false}, style: 'background: none;' 'border-style: none;' do %>
+            <i class="fa-solid fa-user-plus"></i>
+            <% end %>
+</div>
     <% end %>
   <% else %>
     <%= form_with(model: current_user.active_relationships.find_by(following_id: user.id), method: :delete) do |f| %>
-      <%= f.submit "つながりを解除", data: {"turbolinks" => false} %>
+      <div class = "deleate_button">
+        <%= f.button :type => "submit", data: {"turbolinks" => false, confirm: "フォロー解除しますか？"}, style: 'background: none;' 'border-style: none;' 'color: red;' do %>
+          <i class="fa-solid fa-user-slash"></i>
+        <% end %>
+      </div>
     <% end %>
   <% end %>
 </div>

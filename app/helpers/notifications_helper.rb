@@ -9,7 +9,7 @@ module NotificationsHelper
       when "follow" then
         tag.a(notification.visitor.user_name, href:user_path(@visitor), style:"font-weight: bold;")+"があなたをフォローしました"
 
-      when "favotrite" then
+      when "favorite" then
         tag.a(notification.visitor.user_name, href:user_path(@visitor), style:"font-weight: bold;")+"が"+tag.a('あなたの投稿', href:blogs_path(notification.blog_id), style:"font-weight: bold;")+"にいいねしました"
 
       when "comment" then
