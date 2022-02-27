@@ -57,6 +57,24 @@
     color: #333;
     font-size: 0.875rem;
 }
+.footer ul {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+.footer li {
+    margin: 0 12px;
+}
+.footer a {
+    color: #333;
+}
+.footer a:hover {
+    color: #c7c3ba;
+}
+.footer small {
+    color: #333;
+    font-size: .875rem;
+}
 
 .header_container{
     margin-bottom: 30px;
