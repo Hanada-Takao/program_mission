@@ -5,7 +5,7 @@ class BlogsController < ApplicationController
   def index
     #フォローしているユーザーと自分の投稿
     @blogs = Blog.where(user_id: [current_user.id, *current_user.following_ids]).order(created_at: :desc).page(params[:page])
-    # @blog = Blog.new
+    @favorite_blogs = Blog.includes(:favorite_users).sort {|a,b| b.favorite_users.size <=> a.favorite_users.size}
   end
 
   def new

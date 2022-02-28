@@ -92,6 +92,16 @@
 }
 
 #missions-index {
+  .container.mt-5{
+    border: 5px solid #333;
+    width: 60%;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 14px;
+    label{
+      margin-right: 15px;
+    }
+  }
   .content-wrapper {
     // display: flex;
     // justify-content: space-between;
@@ -124,10 +134,6 @@
           .user-email{
             width: 40%;
           }
-        }
-        .blog-title{
-        }
-        .blog-content{
         }
       }
     }
