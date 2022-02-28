@@ -25,8 +25,8 @@ end
 
 13.times do |n|
   blog = Blog.create!(
-    title: "sample_name#{n + 1}",
-    content: "sample_content#{n + 1}",
+    title: "sample_タイトル#{n + 1}",
+    content: "sample_コンテンツ#{n + 1} * 10",
     user_id: "#{User.all.pluck(:id).sample}"
   )
   blog.images.attach(io: File.open(Rails.root.join("app/assets/images/blog_#{n + 1}.jpg")),
