@@ -6,16 +6,19 @@ img {
 }
 
 #users-show {
-  .card-img-top{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  .user-image{
-      width: 60%;
-      text-align: center;
-      margin-top: 50px;
-      }
+  .card-body{
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    text-align: center;
+    .card-image{
+      width: 50%;
+      margin: 0 auto;
     }
+  }
+  .card-image{
+    width: 50%;
+    margin: 0 auto;
+  }
   .edit-profile-btn {
     margin: 15px 0 0 15px;
     font-weight: bold;
