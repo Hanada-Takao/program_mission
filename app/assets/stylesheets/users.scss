@@ -1,9 +1,6 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-img {
-  max-width: 100%;
-}
 
 #users-show {
   .card-body{
@@ -17,7 +14,9 @@ img {
   }
   .card-image{
     width: 50%;
-    margin: 0 auto;
+    img{
+      margin-top: 10px;
+    }
   }
   .edit-profile-btn {
     margin: 15px 0 0 15px;
@@ -51,5 +50,28 @@ img {
   #user_image{
     margin-top: 30px;
     margin-bottom: 20px;
+  }
+}
+
+#users-index {
+  .container{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+    .container-item{
+      width: 15%;
+      text-align: center;
+      justify-content: center;
+      padding: 0px;
+      .container-item-img{
+        border: 1px solid #ccc;
+        .container-item-img img{
+          display: block;
+          object-fit: contain;
+          width: 20%;
+          height: 100px;
+        }
+      }
+    }
   }
 }
