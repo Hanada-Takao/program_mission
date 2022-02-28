@@ -50,7 +50,8 @@
       </tr>
     </thead>
     <tbody>
-      <% @user.blogs.each do |blog| %>
+      <% @blogs.each do |blog| %>
+      <% binding.pry %>
         <tr class="one-post">
           <td><%= link_to blog.title, blog_path(blog) %></td>
           <td><%= blog.content %></td>
